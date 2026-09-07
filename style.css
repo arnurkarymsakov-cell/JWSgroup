@@ -1747,9 +1747,7 @@ padding-top: 55px;
 .hero h1 {
 max-width: none;
 
-```
 font-size: clamp(32px, 10vw, 43px);
-```
 
 }
 
@@ -1760,18 +1758,18 @@ font-size: 16px;
 .hero-ctas {
 flex-direction: column;
 
-```
+
 align-items: stretch;
-```
+
 
 }
 
 .hero-ctas .btn {
 width: 100%;
 
-```
+
 text-align: center;
-```
+
 
 }
 
@@ -1790,7 +1788,7 @@ grid-template-columns: 1fr;
 .tracker-meta > div {
 display: flex;
 
-```
+
 align-items: center;
 
 justify-content: space-between;
@@ -1800,16 +1798,16 @@ gap: 15px;
 padding-bottom: 8px;
 
 border-bottom: 1px solid rgba(36, 64, 79, 0.6);
-```
+
 
 }
 
 .tracker-meta > div:last-child {
 padding-bottom: 0;
 
-```
+
 border-bottom: none;
-```
+
 
 }
 
@@ -1820,9 +1818,9 @@ margin: 0;
 .row-two {
 grid-template-columns: 1fr;
 
-```
+
 gap: 0;
-```
+
 
 }
 
@@ -1845,20 +1843,20 @@ font-size: 16px;
 .language-switcher {
 gap: 2px;
 
-```
+
 padding: 2px;
-```
+
 
 }
 
 .lang-btn {
 min-width: 30px;
 
-```
+
 padding: 5px 5px;
 
 font-size: 10px;
-```
+
 
 }
 
@@ -1899,9 +1897,9 @@ width: 108px;
 .broker-toggle {
 align-items: flex-start;
 
-```
+
 flex-direction: column;
-```
+
 
 }
 
@@ -1916,27 +1914,27 @@ flex: 1;
 .receipt__total {
 align-items: flex-start;
 
-```
+
 flex-direction: column;
-```
+
 
 }
 
 .readout-total {
 width: 100%;
 
-```
+
 text-align: center;
-```
+
 
 }
 
 .footer-row {
 align-items: flex-start;
 
-```
+
 flex-direction: column;
-```
+
 
 }
 
@@ -1964,10 +1962,10 @@ height: 7px;
 .lang-btn {
 min-width: 27px;
 
-```
+
 padding-left: 4px;
 padding-right: 4px;
-```
+
 
 }
 
