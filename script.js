@@ -1,4 +1,3 @@
-```javascript
 /* =========================================================
    JWS GROUP — SCRIPT
    Языки: RU / KZ / EN
@@ -27,11 +26,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
       heroTitle: "Растаможка и хранение груза — без задержек на границе",
       heroText:
-        "JWS Group ведёт таможенное декларирование, принимает грузы на собственный склад временного хранения (СВХ) и сопровождает поставку от границы до получателя.",
+        "JWS Group ведёт таможенное декларирование, принимает грузы на собственный склад временного хранения (СВХ) и сопровождает от границы до получателя.",
 
       onWay: "В ПУТИ",
       china: "Китай",
       border: "Граница",
+      warehouseShort: "СВХ",
       weight: "Вес",
       status: "Статус",
       inTransit: "В пути",
@@ -88,6 +88,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productCost: "Стоимость товара",
       currency: "Валюта",
       exchangeRate: "Курс к тенге",
+      rateHint: "1 единица валюты = ₸",
       dutyRate: "Пошлина, %",
       vatRate: "НДС, %",
 
@@ -169,11 +170,12 @@ document.addEventListener("DOMContentLoaded", () => {
         "Жүкті кедендік рәсімдеу және сақтау — шекарада кідіріссіз",
 
       heroText:
-        "JWS Group кедендік декларациялауды жүргізеді, жүктерді уақытша сақтау қоймасына (СВХ) қабылдайды және жүкті шекарадан алушыға дейін сүйемелдейді.",
+        "JWS Group кедендік декларациялауды жүргізеді, жүктерді уақытша сақтау қоймасына (СВХ) қабылдайды және шекарадан алушыға дейін сүйемелдейді.",
 
       onWay: "ЖОЛДА",
       china: "Қытай",
       border: "Шекара",
+      warehouseShort: "СВХ",
       weight: "Салмақ",
       status: "Мәртебе",
       inTransit: "Жолда",
@@ -230,6 +232,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productCost: "Тауар құны",
       currency: "Валюта",
       exchangeRate: "Теңгеге бағам",
+      rateHint: "1 бірлігі = ₸",
       dutyRate: "Баж, %",
       vatRate: "ҚҚС, %",
 
@@ -317,6 +320,7 @@ document.addEventListener("DOMContentLoaded", () => {
       onWay: "IN TRANSIT",
       china: "China",
       border: "Border",
+      warehouseShort: "Warehouse",
       weight: "Weight",
       status: "Status",
       inTransit: "In transit",
@@ -373,6 +377,7 @@ document.addEventListener("DOMContentLoaded", () => {
       productCost: "Goods value",
       currency: "Currency",
       exchangeRate: "Exchange rate to KZT",
+      rateHint: "1 unit = ₸",
       dutyRate: "Duty, %",
       vatRate: "VAT, %",
 
@@ -894,4 +899,3 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 });
-```
