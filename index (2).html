@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JWS Group — таможенное декларирование и хранение на СВХ</title>
+<meta name="description" content="JWS Group: таможенное декларирование, хранение на складе временного хранения (СВХ) и брокерское сопровождение грузов из Китая в Казахстан.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0E1B26;
+    --bg-panel: #142837;
+    --bg-panel-deep: #0B141C;
+    --bg-panel-light: #1B3345;
+    --ink: #E7ECEF;
+    --ink-soft: #93A7B2;
+    --ink-faint: #5D717C;
+    --line: #24404F;
+    --teal: #3FB6BE;
+    --teal-deep: #2C8890;
+    --amber: #E3A542;
+    --amber-deep: #B9822F;
+    --display: "Space Grotesk", "IBM Plex Sans", sans-serif;
+    --sans: "IBM Plex Sans", -apple-system, sans-serif;
+    --mono: "IBM Plex Mono", "Courier New", monospace;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.55;
+  }
+
+  a { color: inherit; }
+  img, svg { display: block; max-width: 100%; }
+
+  .wrap {
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 clamp(18px, 4vw, 40px);
+  }
+
+  h1, h2, h3 { font-family: var(--display); margin: 0; line-height: 1.15; font-weight: 600; }
+
+  section { padding: clamp(52px, 8vw, 96px) 0; }
+
+  .section-head { max-width: 58ch; margin-bottom: 44px; }
+
+  .section-tag {
+    font-family: var(--mono);
+    font-size: 12px;
+    color: var(--teal);
+    letter-spacing: 0.02em;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+  }
+
+  .section-tag::before {
+    content: "";
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    display: inline-block;
+  }
+
+  .section-head h2 { font-size: clamp(24px, 3.2vw, 32px); }
+  .section-head p { color: var(--ink-soft); margin-top: 12px; font-size: 15.5px; }
+
+  /* -------- panel with scope-corner brackets -------- */
+
+  .panel {
+    position: relative;
+    background: var(--bg-panel);
+    border: 1px solid var(--line);
+    padding: 26px 24px;
+  }
+
+  .panel::before, .panel::after,
+  .panel .br-tl, .panel .br-br {
+    content: "";
+    position: absolute;
+    width: 14px; height: 14px;
+    pointer-events: none;
+  }
+
+  .panel::before {
+    top: -1px; left: -1px;
+    border-top: 2px solid var(--teal);
+    border-left: 2px solid var(--teal);
+  }
+
+  .panel::after {
+    bottom: -1px; right: -1px;
+    border-bottom: 2px solid var(--teal);
+    border-right: 2px solid var(--teal);
+  }
+
+  /* -------- HEADER / NAV -------- */
+
+  header.site {
+    border-bottom: 1px solid var(--line);
+    background: rgba(14, 27, 38, 0.92);
+    backdrop-filter: blur(6px);
+    position: sticky;
+    top: 0;
+    z-index: 30;
+  }
+
+  .nav { display: flex; align-items: center; justify-content: space-between; padding: 16px 0; }
+
+  .logo {
+    font-family: var(--display);
+    font-weight: 700;
+    font-size: 19px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--ink);
+  }
+
+  .live-dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--teal);
+    box-shadow: 0 0 0 0 rgba(63,182,190,0.6);
+    animation: livePulse 2.4s ease-out infinite;
+  }
+
+  @keyframes livePulse {
+    0%   { box-shadow: 0 0 0 0 rgba(63,182,190,0.55); }
+    70%  { box-shadow: 0 0 0 8px rgba(63,182,190,0); }
+    100% { box-shadow: 0 0 0 0 rgba(63,182,190,0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) { .live-dot { animation: none; } }
+
+  .logo .tag { font-family: var(--mono); font-size: 11px; color: var(--ink-faint); font-weight: 400; }
+
+  .nav-links { display: flex; gap: 26px; list-style: none; margin: 0; padding: 0; }
+  .nav-links a { text-decoration: none; font-size: 14.5px; color: var(--ink-soft); }
+  .nav-links a:hover { color: var(--ink); }
+
+  .btn {
+    display: inline-block;
+    font-family: var(--sans);
+    font-size: 14.5px;
+    font-weight: 500;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 2px;
+    border: 1.5px solid var(--ink-soft);
+    cursor: pointer;
+    background: transparent;
+    color: var(--ink);
+  }
+
+  .btn--solid { background: var(--amber); border-color: var(--amber); color: #0E1B26; font-weight: 600; }
+  .btn--solid:hover { background: var(--amber-deep); border-color: var(--amber-deep); }
+  .btn:not(.btn--solid):hover { border-color: var(--ink); }
+
+  .nav-toggle {
+    display: none;
+    background: none;
+    border: 1.5px solid var(--ink-soft);
+    border-radius: 2px;
+    width: 38px; height: 34px;
+    cursor: pointer;
+  }
+  .nav-toggle span, .nav-toggle::before, .nav-toggle::after {
+    content: ""; display: block; height: 2px; background: var(--ink); margin: 6px 8px;
+  }
+
+  @media (max-width: 760px) {
+    .nav-links, .nav .btn--solid { display: none; }
+    .nav-toggle { display: block; }
+    header.site.open .nav-links {
+      display: flex; flex-direction: column; gap: 0;
+      position: absolute; top: 100%; left: 0; right: 0;
+      background: var(--bg-panel); border-bottom: 1px solid var(--line); padding: 6px 0;
+    }
+    header.site.open .nav-links a { padding: 12px clamp(18px, 4vw, 40px); border-bottom: 1px solid var(--line); }
+    header.site.open .btn--solid.mobile-cta { display: block; margin: 12px clamp(18px, 4vw, 40px) 16px; text-align: center; }
+  }
+
+  /* -------- HERO -------- */
+
+  .hero {
+    padding: clamp(56px, 9vw, 100px) 0 clamp(40px, 6vw, 64px);
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media (max-width: 860px) { .hero { grid-template-columns: 1fr; } }
+
+  .hero h1 { font-size: clamp(32px, 4.6vw, 48px); max-width: 15ch; }
+  .hero p.lede { margin-top: 18px; font-size: 17px; color: var(--ink-soft); max-width: 46ch; }
+  .hero-ctas { display: flex; gap: 14px; margin-top: 30px; flex-wrap: wrap; }
+
+  /* route tracker graphic */
+
+  .tracker { padding: 22px 22px 20px; }
+  .tracker-head {
+    display: flex; justify-content: space-between; align-items: baseline;
+    font-family: var(--mono); font-size: 11.5px; color: var(--ink-faint);
+    margin-bottom: 18px;
+  }
+  .tracker-head .status {
+    color: var(--teal);
+    background: rgba(63,182,190,0.12);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+
+  .route-line {
+    display: flex;
+    align-items: center;
+    margin: 30px 0 8px;
+  }
+  .route-line .seg {
+    flex: 1;
+    height: 2px;
+    background: repeating-linear-gradient(90deg, var(--teal) 0 6px, transparent 6px 11px);
+  }
+  .route-line .node {
+    width: 11px; height: 11px;
+    border-radius: 50%;
+    border: 2px solid var(--teal);
+    background: var(--bg-panel);
+    flex-shrink: 0;
+  }
+  .route-line .node.active { background: var(--teal); }
+  .route-line .node.end { border-color: var(--amber); }
+
+  .route-labels {
+    display: flex; justify-content: space-between;
+    font-family: var(--mono); font-size: 12px; color: var(--ink-soft);
+    margin-bottom: 22px;
+  }
+  .route-labels span:first-child { text-align: left; }
+  .route-labels span:last-child { text-align: right; color: var(--amber); }
+
+  .tracker-meta {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+  }
+  .tracker-meta div dt {
+    font-family: var(--mono); font-size: 10.5px; color: var(--ink-faint);
+    text-transform: none;
+  }
+  .tracker-meta div dd {
+    margin: 4px 0 0; font-family: var(--mono); font-size: 14px; color: var(--ink);
+  }
+
+  /* -------- SERVICES (panel grid) -------- */
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+  @media (max-width: 700px) { .service-grid { grid-template-columns: 1fr; } }
+
+  .service-panel .code {
+    font-family: var(--mono); font-size: 12px; color: var(--teal); margin-bottom: 10px; display: block;
+  }
+  .service-panel h3 { font-size: 18px; margin-bottom: 8px; }
+  .service-panel p { margin: 0; color: var(--ink-soft); font-size: 14.5px; }
+
+  /* -------- PROCESS (waypoints on a line) -------- */
+
+  .journey { position: relative; padding-top: 10px; }
+
+  .journey-line {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .journey-line::before {
+    content: "";
+    position: absolute;
+    top: 7px; left: 0; right: 0;
+    height: 2px;
+    background: var(--line);
+  }
+
+  @media (max-width: 760px) {
+    .journey-line { grid-template-columns: 1fr; gap: 30px; }
+    .journey-line::before { top: 0; bottom: 0; left: 7px; width: 2px; height: auto; right: auto; }
+  }
+
+  .waypoint { position: relative; padding: 26px 20px 0 0; }
+
+  @media (max-width: 760px) { .waypoint { padding: 0 0 0 30px; } }
+
+  .waypoint::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    border: 2px solid var(--teal);
+    background: var(--bg);
+  }
+
+  @media (max-width: 760px) { .waypoint::before { top: 2px; } }
+
+  .waypoint .num { font-family: var(--mono); font-size: 11.5px; color: var(--ink-faint); }
+  .waypoint h3 { font-size: 16.5px; margin: 8px 0 8px; }
+  .waypoint p { margin: 0; font-size: 14px; color: var(--ink-soft); }
+
+  /* -------- CALCULATOR (console) -------- */
+
+  .console { padding: 0; overflow: hidden; }
+  .console-body { display: grid; grid-template-columns: 1.15fr 1fr; }
+  @media (max-width: 780px) { .console-body { grid-template-columns: 1fr; } }
+
+  .console-form { padding: 30px clamp(20px, 3vw, 36px) 36px; border-right: 1px solid var(--line); }
+  @media (max-width: 780px) { .console-form { border-right: none; border-bottom: 1px solid var(--line); } }
+
+  fieldset { border: none; padding: 0; margin: 0 0 26px; }
+
+  legend {
+    font-family: var(--mono); font-weight: 500; font-size: 12.5px; color: var(--teal);
+    letter-spacing: 0.03em; padding: 0 0 10px; border-bottom: 1px solid var(--line);
+    width: 100%; margin-bottom: 16px;
+  }
+
+  .field { display: grid; grid-template-columns: 1fr auto; align-items: end; column-gap: 12px; margin-bottom: 16px; }
+  .field label { font-size: 13.5px; color: var(--ink); }
+  .field .hint { display: block; font-size: 12px; color: var(--ink-faint); margin-top: 2px; }
+
+  .field input[type="number"], .field select {
+    font-family: var(--mono); font-size: 15px; color: var(--ink);
+    background: var(--bg-panel-deep); border: 1px solid var(--line);
+    padding: 7px 9px; width: 120px; text-align: right; border-radius: 2px;
+  }
+  .field select { text-align: left; width: 140px; font-family: var(--sans); font-size: 14px; }
+
+  .field input:focus-visible, .field select:focus-visible, button:focus-visible, .toggle button:focus-visible {
+    outline: 2px solid var(--teal); outline-offset: 2px;
+  }
+  .field input[type="number"]:focus, .field select:focus { border-color: var(--teal); }
+
+  .row-two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 18px; }
+  @media (max-width: 440px) { .row-two { grid-template-columns: 1fr; } }
+
+  .broker-toggle { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 16px; }
+  .broker-toggle span { font-size: 13.5px; }
+
+  .toggle {
+    position: relative; display: inline-flex;
+    border: 1px solid var(--line); border-radius: 999px; overflow: hidden;
+    font-family: var(--mono); font-size: 12px; background: var(--bg-panel-deep);
+  }
+  .toggle button { background: transparent; border: none; padding: 6px 12px; cursor: pointer; color: var(--ink-faint); }
+  .toggle button[aria-pressed="true"] { background: var(--teal); color: #0E1B26; }
+
+  .storage-basis { display: flex; gap: 18px; margin: -4px 0 16px; flex-wrap: wrap; }
+  .storage-basis label { display: flex; align-items: center; gap: 6px; font-size: 13.5px; cursor: pointer; }
+  .storage-basis input[type="radio"] { accent-color: var(--teal); }
+
+  .console-readout { padding: 30px clamp(20px, 3vw, 36px) 36px; display: flex; flex-direction: column; background: var(--bg-panel-deep); }
+
+  .console-readout h3 {
+    font-family: var(--mono); font-size: 12.5px; font-weight: 500; color: var(--teal);
+    letter-spacing: 0.03em; margin: 0 0 18px; border-bottom: 1px solid var(--line); padding-bottom: 10px;
+  }
+
+  .receipt__lines { margin: 0 0 20px; padding: 0; }
+  .line { display: flex; align-items: baseline; gap: 8px; padding: 8px 0; font-size: 14px; }
+  .line dt { white-space: nowrap; color: var(--ink-soft); }
+  .line .leader { flex: 1; border-bottom: 1px dotted var(--line); height: 1px; margin-bottom: 4px; }
+  .line dd { margin: 0; font-family: var(--mono); font-size: 14.5px; white-space: nowrap; color: var(--ink); }
+
+  .receipt__total {
+    margin-top: auto; padding-top: 20px; border-top: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  }
+  .receipt__total-label { font-family: var(--sans); font-size: 13.5px; color: var(--ink-soft); }
+  .receipt__total-label small { display: block; font-family: var(--mono); font-size: 11px; margin-top: 3px; color: var(--ink-faint); }
+
+  .readout-total {
+    font-family: var(--mono); font-weight: 600; font-size: 22px; color: var(--amber);
+    border: 1px solid var(--amber-deep); border-radius: 2px; padding: 8px 16px;
+    white-space: nowrap; transition: opacity 0.15s ease-out;
+  }
+  .readout-total.pulse { animation: readoutHit 0.3s ease-out; }
+  @keyframes readoutHit {
+    0%   { opacity: 0.4; }
+    100% { opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) { .readout-total, .readout-total.pulse { animation: none; transition: none; } }
+
+  .foot-note { margin-top: 20px; font-size: 12px; color: var(--ink-faint); line-height: 1.5; }
+  .foot-note code { font-family: var(--mono); background: var(--bg-panel-light); padding: 1px 4px; border-radius: 2px; color: var(--ink-soft); }
+
+  /* -------- ABOUT -------- */
+
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  @media (max-width: 760px) { .about-grid { grid-template-columns: 1fr; } }
+  .about-grid p { color: var(--ink-soft); font-size: 15.5px; }
+
+  .checklist { list-style: none; margin: 0; padding: 0; }
+  .checklist li { padding: 13px 0; border-bottom: 1px solid var(--line); font-size: 14.5px; display: flex; gap: 10px; color: var(--ink-soft); }
+  .checklist li::before { content: "▸"; color: var(--teal); flex-shrink: 0; }
+
+  /* -------- CONTACT -------- */
+
+  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 44px; }
+  @media (max-width: 760px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .contact-info dl { margin: 0; }
+  .contact-info dt { font-family: var(--mono); font-size: 11.5px; color: var(--teal); margin-top: 18px; }
+  .contact-info dt:first-child { margin-top: 0; }
+  .contact-info dd { margin: 4px 0 0; font-size: 15px; color: var(--ink); }
+
+  .placeholder-note {
+    margin-top: 24px; padding: 12px 14px; background: var(--bg-panel);
+    border-left: 3px solid var(--amber); font-size: 12.5px; color: var(--ink-soft);
+  }
+
+  form.contact-form { display: flex; flex-direction: column; gap: 16px; }
+  .cf-field { display: flex; flex-direction: column; gap: 6px; }
+  .cf-field label { font-size: 13.5px; color: var(--ink-soft); }
+  .cf-field input, .cf-field textarea {
+    font-family: var(--sans); font-size: 14.5px; color: var(--ink);
+    background: var(--bg-panel-deep); border: 1px solid var(--line); border-radius: 2px;
+    padding: 10px 12px; resize: vertical;
+  }
+  .cf-field input:focus-visible, .cf-field textarea:focus-visible { outline: 2px solid var(--teal); outline-offset: 1px; }
+  .contact-form .btn--solid { align-self: flex-start; }
+
+  /* -------- FOOTER -------- */
+
+  footer.site { border-top: 1px solid var(--line); padding: 30px 0; }
+  .footer-row { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; font-size: 13px; color: var(--ink-faint); }
+  .footer-row .logo { font-size: 15px; }
+</style>
+</head>
+<body>
+
+<header class="site" id="siteHeader">
+  <div class="wrap nav">
+    <a class="logo" href="#top"><span class="live-dot"></span>JWS GROUP <span class="tag">таможня · СВХ</span></a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#process">Как это работает</a></li>
+        <li><a href="#calculator">Калькулятор</a></li>
+        <li><a href="#about">О компании</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
+    <a class="btn btn--solid" href="#contact">Оставить заявку</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Открыть меню" aria-expanded="false"></button>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero wrap">
+    <div>
+      <h1>Растаможка и хранение груза — без задержек на границе</h1>
+      <p class="lede">JWS Group ведёт таможенное декларирование, принимает грузы на собственный склад временного хранения (СВХ) и сопровождает поставку от границы до получателя.</p>
+      <div class="hero-ctas">
+        <a class="btn btn--solid" href="#contact">Оставить заявку</a>
+        <a class="btn" href="#calculator">Рассчитать стоимость</a>
+      </div>
+    </div>
+
+    <div class="panel tracker">
+      <div class="tracker-head">
+        <span>ГРУЗ · CN → KZ</span>
+        <span class="status">В ПУТИ</span>
+      </div>
+
+      <div class="route-line">
+        <div class="node active"></div>
+        <div class="seg"></div>
+        <div class="node active"></div>
+        <div class="seg"></div>
+        <div class="node end"></div>
+      </div>
+      <div class="route-labels">
+        <span>Шэньчжэнь</span>
+        <span>Хоргос</span>
+        <span>СВХ Алматы</span>
+      </div>
+
+      <dl class="tracker-meta">
+        <div><dt>вес</dt><dd>120 кг</dd></div>
+        <div><dt>статус</dt><dd>В пути</dd></div>
+        <div><dt>ETA</dt><dd>3 дня</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Услуги</span>
+        <h2>Что мы делаем с грузом</h2>
+        <p>Можно заказать любую услугу отдельно или полным циклом — от границы до выдачи получателю.</p>
+      </div>
+
+      <div class="service-grid">
+        <div class="panel service-panel">
+          <span class="code">УСЛ · ДЕК</span>
+          <h3>Таможенное декларирование</h3>
+          <p>Подготовка и подача декларации, расчёт пошлины и НДС, взаимодействие с таможенным постом.</p>
+        </div>
+        <div class="panel service-panel">
+          <span class="code">УСЛ · СВХ</span>
+          <h3>Хранение на складе временного хранения</h3>
+          <p>Приём, размещение и выдача груза на СВХ на весь период оформления — по весу или по объёму.</p>
+        </div>
+        <div class="panel service-panel">
+          <span class="code">УСЛ · БРОК</span>
+          <h3>Брокерское сопровождение</h3>
+          <p>Ведение сделки от подачи документов до выпуска груза, включая переписку с таможней.</p>
+        </div>
+        <div class="panel service-panel">
+          <span class="code">УСЛ · КОД</span>
+          <h3>Определение кода ТН ВЭД и ставок</h3>
+          <p>Подбор верного кода товара и действующих ставок пошлины и НДС до подачи декларации.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="process" style="background: var(--bg-panel);">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Процесс</span>
+        <h2>Путь груза от заявки до выдачи</h2>
+        <p>Четыре точки маршрута — так же, как в отслеживании реальной поставки.</p>
+      </div>
+
+      <div class="journey">
+        <div class="journey-line">
+          <div class="waypoint">
+            <span class="num">01</span>
+            <h3>Заявка</h3>
+            <p>Присылаете документы на груз, мы уточняем код ТН ВЭД и предварительную стоимость.</p>
+          </div>
+          <div class="waypoint">
+            <span class="num">02</span>
+            <h3>Приём на СВХ</h3>
+            <p>Груз поступает на склад временного хранения, фиксируем вес и объём.</p>
+          </div>
+          <div class="waypoint">
+            <span class="num">03</span>
+            <h3>Декларирование</h3>
+            <p>Подаём декларацию, рассчитываем и оплачиваем пошлину и НДС.</p>
+          </div>
+          <div class="waypoint">
+            <span class="num">04</span>
+            <h3>Выпуск груза</h3>
+            <p>После выпуска таможней выдаём груз или организуем доставку получателю.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="calculator">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="section-tag">Калькулятор</span>
+        <h2>Рассчитайте стоимость заранее</h2>
+        <p>Пошлина, НДС, хранение на СВХ и услуги брокера — один расчёт по одной поставке. Ставки по умолчанию ориентировочные, для точного расчёта уточните у брокера.</p>
+      </div>
+
+      <div class="panel console">
+        <div class="console-body">
+          <form class="console-form" id="calcForm">
+
+            <fieldset>
+              <legend>Товар</legend>
+              <div class="row-two">
+                <div class="field">
+                  <div><label for="value">Стоимость товара</label><span class="hint">в валюте поставки</span></div>
+                  <input type="number" id="value" min="0" step="0.01" value="5000">
+                </div>
+                <div class="field">
+                  <div><label for="currency">Валюта</label></div>
+                  <select id="currency">
+                    <option value="USD">USD</option>
+                    <option value="CNY">CNY</option>
+                    <option value="KZT">KZT</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <div><label for="rate">Курс к тенге</label><span class="hint">1 ед. валюты = ? ₸</span></div>
+                <input type="number" id="rate" min="0" step="0.01" value="540">
+              </div>
+              <div class="row-two">
+                <div class="field">
+                  <div><label for="duty">Ставка пошлины</label><span class="hint">% от там. стоимости</span></div>
+                  <input type="number" id="duty" min="0" step="0.1" value="10">
+                </div>
+                <div class="field">
+                  <div><label for="vat">Ставка НДС</label><span class="hint">% на импорт</span></div>
+                  <input type="number" id="vat" min="0" step="0.1" value="12">
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Хранение на СВХ</legend>
+              <div class="row-two">
+                <div class="field">
+                  <div><label for="weight">Вес</label><span class="hint">кг</span></div>
+                  <input type="number" id="weight" min="0" step="0.1" value="120">
+                </div>
+                <div class="field">
+                  <div><label for="volume">Объём</label><span class="hint">м³</span></div>
+                  <input type="number" id="volume" min="0" step="0.01" value="1.4">
+                </div>
+              </div>
+              <div class="storage-basis" role="radiogroup" aria-label="База начисления хранения">
+                <label><input type="radio" name="basis" value="weight" checked> по весу (кг)</label>
+                <label><input type="radio" name="basis" value="volume"> по объёму (м³)</label>
+              </div>
+              <div class="row-two">
+                <div class="field">
+                  <div><label for="storageRate">Ставка хранения</label><span class="hint">₸ / ед. / день</span></div>
+                  <input type="number" id="storageRate" min="0" step="1" value="80">
+                </div>
+                <div class="field">
+                  <div><label for="days">Дней хранения</label></div>
+                  <input type="number" id="days" min="0" step="1" value="6">
+                </div>
+              </div>
+            </fieldset>
+
+            <fieldset>
+              <legend>Услуги брокера</legend>
+              <div class="broker-toggle">
+                <span>Как считать</span>
+                <div class="toggle" id="brokerToggle">
+                  <button type="button" data-mode="fixed" aria-pressed="true">сумма, ₸</button>
+                  <button type="button" data-mode="percent" aria-pressed="false">% от там. стоимости</button>
+                </div>
+              </div>
+              <div class="field">
+                <div><label for="brokerValue" id="brokerValueLabel">Сумма услуг брокера</label></div>
+                <input type="number" id="brokerValue" min="0" step="1" value="25000">
+              </div>
+            </fieldset>
+          </form>
+
+          <aside class="console-readout" aria-live="polite">
+            <h3>Расчёт по поставке</h3>
+            <dl class="receipt__lines">
+              <div class="line"><dt>Таможенная стоимость</dt><div class="leader"></div><dd id="outValue">0 ₸</dd></div>
+              <div class="line"><dt>Пошлина</dt><div class="leader"></div><dd id="outDuty">0 ₸</dd></div>
+              <div class="line"><dt>НДС на импорт</dt><div class="leader"></div><dd id="outVat">0 ₸</dd></div>
+              <div class="line"><dt>Хранение на СВХ</dt><div class="leader"></div><dd id="outStorage">0 ₸</dd></div>
+              <div class="line"><dt>Услуги брокера</dt><div class="leader"></div><dd id="outBroker">0 ₸</dd></div>
+            </dl>
+            <div class="receipt__total">
+              <div class="receipt__total-label">Итого к оплате<small>ТАМОЖНЯ + НДС + СВХ + БРОКЕР</small></div>
+              <div class="readout-total" id="outTotal">0 ₸</div>
+            </div>
+            <p class="foot-note">НДС считается от суммы «таможенная стоимость + пошлина». Ставки по умолчанию (<code>10%</code> пошлина, <code>12%</code> НДС) — ориентировочные, замените на действующие для вашего кода ТН ВЭД.</p>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about" style="background: var(--bg-panel);">
+    <div class="wrap about-grid">
+      <div>
+        <span class="section-tag">О компании</span>
+        <h2>JWS Group</h2>
+        <p style="margin-top:16px;">Работаем с импортными поставками на всех этапах — от подачи декларации до выдачи груза с собственного склада временного хранения. Ведём сопровождение в соответствии с таможенным законодательством Республики Казахстан.</p>
+      </div>
+      <ul class="checklist">
+        <li>Приём грузов на СВХ ежедневно</li>
+        <li>Подготовка деклараций и расчёт платежей</li>
+        <li>Подбор кода ТН ВЭД и применимых ставок</li>
+        <li>Сопровождение сделки брокером до выпуска груза</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact-grid">
+      <div class="contact-info">
+        <span class="section-tag">Контакты</span>
+        <h2>Оставить заявку</h2>
+        <dl>
+          <dt>Телефон</dt><dd>[укажите номер телефона]</dd>
+          <dt>Email</dt><dd>[укажите email]</dd>
+          <dt>Адрес СВХ</dt><dd>[укажите адрес склада]</dd>
+          <dt>Режим работы</dt><dd>[укажите часы приёма грузов]</dd>
+        </dl>
+        <p class="placeholder-note">Это шаблонные контакты — замените их, адрес СВХ и реквизиты компании на настоящие данные JWS Group перед публикацией сайта.</p>
+      </div>
+
+      <form class="contact-form" id="contactForm" action="https://formspree.io/f/ЗАМЕНИТЕ_НА_СВОЙ_ID" method="POST">
+        <div class="cf-field">
+          <label for="cf-name">Имя</label>
+          <input type="text" id="cf-name" name="name" required>
+        </div>
+        <div class="cf-field">
+          <label for="cf-contact">Телефон или email</label>
+          <input type="text" id="cf-contact" name="contact" required>
+        </div>
+        <div class="cf-field">
+          <label for="cf-message">Что нужно оформить</label>
+          <textarea id="cf-message" name="message" rows="4" placeholder="Вес, объём груза, страна отправления"></textarea>
+        </div>
+        <button type="submit" class="btn btn--solid">Отправить заявку</button>
+        <p class="foot-note" id="formStatus">Заявка уходит напрямую вам на почту через Formspree.</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap footer-row">
+    <span class="logo"><span class="live-dot"></span>JWS GROUP</span>
+    <span>Таможенное декларирование и хранение на СВХ · [город], Казахстан</span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // mobile nav
+  const header = document.getElementById('siteHeader');
+  const toggle = document.getElementById('navToggle');
+  toggle.addEventListener('click', () => {
+    const open = header.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+  document.querySelectorAll('.nav-links a').forEach(a =>
+    a.addEventListener('click', () => header.classList.remove('open')));
+
+  // calculator
+  const $ = (id) => document.getElementById(id);
+  const inputs = {
+    value: $('value'), currency: $('currency'), rate: $('rate'),
+    duty: $('duty'), vat: $('vat'), weight: $('weight'), volume: $('volume'),
+    storageRate: $('storageRate'), days: $('days'), brokerValue: $('brokerValue'),
+  };
+  let brokerMode = 'fixed';
+  const brokerToggle = $('brokerToggle');
+  const brokerValueLabel = $('brokerValueLabel');
+
+  brokerToggle.addEventListener('click', (e) => {
+    const btn = e.target.closest('button[data-mode]');
+    if (!btn) return;
+    brokerMode = btn.dataset.mode;
+    [...brokerToggle.querySelectorAll('button')].forEach(b =>
+      b.setAttribute('aria-pressed', String(b === btn)));
+    brokerValueLabel.textContent = brokerMode === 'fixed' ? 'Сумма услуг брокера' : 'Процент услуг брокера';
+    inputs.brokerValue.step = brokerMode === 'fixed' ? '1' : '0.1';
+    calc();
+  });
+
+  const num = (el) => { const v = parseFloat(el.value); return Number.isFinite(v) ? v : 0; };
+  const kzt = (n) => Math.round(n).toLocaleString('ru-RU') + ' ₸';
+
+  function calc() {
+    const currency = inputs.currency.value;
+    const rate = currency === 'KZT' ? 1 : num(inputs.rate);
+    const customsValue = num(inputs.value) * rate;
+    const duty = customsValue * (num(inputs.duty) / 100);
+    const vat = (customsValue + duty) * (num(inputs.vat) / 100);
+    const basis = document.querySelector('input[name="basis"]:checked').value;
+    const qty = basis === 'weight' ? num(inputs.weight) : num(inputs.volume);
+    const storage = num(inputs.storageRate) * qty * num(inputs.days);
+    const brokerRaw = num(inputs.brokerValue);
+    const broker = brokerMode === 'fixed' ? brokerRaw : customsValue * (brokerRaw / 100);
+    const total = customsValue + duty + vat + storage + broker;
+
+    $('outValue').textContent = kzt(customsValue);
+    $('outDuty').textContent = kzt(duty);
+    $('outVat').textContent = kzt(vat);
+    $('outStorage').textContent = kzt(storage);
+    $('outBroker').textContent = kzt(broker);
+
+    const readout = $('outTotal');
+    readout.textContent = kzt(total);
+    readout.classList.remove('pulse');
+    void readout.offsetWidth;
+    readout.classList.add('pulse');
+  }
+
+  document.getElementById('calcForm').addEventListener('input', calc);
+  document.getElementById('calcForm').addEventListener('change', calc);
+  calc();
+
+  // contact form -> Formspree
+  const contactForm = document.getElementById('contactForm');
+  const formStatus = document.getElementById('formStatus');
+
+  contactForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const submitBtn = contactForm.querySelector('button[type="submit"]');
+    submitBtn.disabled = true;
+    formStatus.textContent = 'Отправляем заявку…';
+
+    try {
+      const response = await fetch(contactForm.action, {
+        method: 'POST',
+        body: new FormData(contactForm),
+        headers: { 'Accept': 'application/json' },
+      });
+
+      if (response.ok) {
+        formStatus.textContent = 'Заявка отправлена. Мы свяжемся с вами в ближайшее время.';
+        contactForm.reset();
+      } else {
+        formStatus.textContent = 'Не удалось отправить заявку. Проверьте, что ID формы Formspree указан верно, или напишите нам напрямую.';
+      }
+    } catch (err) {
+      formStatus.textContent = 'Не удалось отправить заявку — проверьте подключение к интернету и попробуйте ещё раз.';
+    } finally {
+      submitBtn.disabled = false;
+    }
+  });
+})();
+</script>
+
+</body>
+</html>
