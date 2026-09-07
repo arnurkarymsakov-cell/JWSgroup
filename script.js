@@ -7,27 +7,24 @@
   ========================= */
 
   const header = document.getElementById("siteHeader");
-  const menuButton = document.getElementById("menuButton");
-  const mainNav = document.getElementById("mainNav");
+  const navToggle = document.getElementById("navToggle");
 
-  if (header && menuButton) {
-    menuButton.addEventListener("click", function () {
+  if (header && navToggle) {
+    navToggle.addEventListener("click", function () {
       const isOpen = header.classList.toggle("open");
 
-      menuButton.setAttribute(
+      navToggle.setAttribute(
         "aria-expanded",
         String(isOpen)
       );
     });
 
-    if (mainNav) {
-      mainNav.querySelectorAll("a").forEach(function (link) {
-        link.addEventListener("click", function () {
-          header.classList.remove("open");
-          menuButton.setAttribute("aria-expanded", "false");
-        });
+    document.querySelectorAll(".nav-links a").forEach(function (link) {
+      link.addEventListener("click", function () {
+        header.classList.remove("open");
+        navToggle.setAttribute("aria-expanded", "false");
       });
-    }
+    });
   }
 
 
@@ -44,20 +41,15 @@
       navAbout: "О компании",
       navContact: "Контакты",
 
-      leaveRequest: "Оставить заявку",
+      request: "Оставить заявку",
       calculate: "Рассчитать стоимость",
 
       heroTitle:
-        "Таможенное оформление и хранение груза — без лишних задержек",
+        "Растаможка и хранение груза — без задержек на границе",
 
       heroText:
-        "Помогаем импортёрам пройти таможенное оформление, принять груз на СВХ и организовать выпуск без лишней бюрократии.",
+        "JWS Group ведёт таможенное декларирование, принимает грузы на собственный склад временного хранения (СВХ) и сопровождает поставку от границы до получателя.",
 
-      stat1: "Таможенное оформление",
-      stat2: "Склад временного хранения",
-      stat3: "Брокерское сопровождение",
-
-      cargo: "ГРУЗ",
       onWay: "В ПУТИ",
       china: "Китай",
       border: "Граница",
@@ -66,73 +58,61 @@
       inTransit: "В пути",
       days: "дня",
 
-      servicesTag: "УСЛУГИ",
-      servicesTitle:
-        "Полное сопровождение импортного груза",
-
+      servicesTag: "Услуги",
+      servicesTitle: "Что мы делаем с грузом",
       servicesText:
-        "От подготовки документов до выпуска груза и его выдачи получателю.",
+        "Можно заказать любую услугу отдельно или полным циклом — от границы до выдачи получателю.",
 
-      service1Title:
-        "Таможенное декларирование",
-
+      service1Title: "Таможенное декларирование",
       service1Text:
-        "Подготовка документов, подача декларации, расчёт таможенных платежей и взаимодействие с таможенными органами.",
+        "Подготовка и подача декларации, расчёт пошлины и НДС, взаимодействие с таможенным постом.",
 
-      service2Title:
-        "Хранение на СВХ",
-
+      service2Title: "Хранение на складе временного хранения",
       service2Text:
-        "Приём, размещение и выдача груза на складе временного хранения в период таможенного оформления.",
+        "Приём, размещение и выдача груза на СВХ на весь период оформления — по весу или по объёму.",
 
-      service3Title:
-        "Брокерское сопровождение",
-
+      service3Title: "Брокерское сопровождение",
       service3Text:
-        "Сопровождаем поставку от подачи документов до выпуска груза, включая коммуникацию с таможней.",
+        "Ведение сделки от подачи документов до выпуска груза, включая переписку с таможней.",
 
-      service4Title:
-        "Код ТН ВЭД",
-
+      service4Title: "Определение кода ТН ВЭД и ставок",
       service4Text:
-        "Помогаем определить код товара и ориентировочные ставки таможенной пошлины и НДС.",
+        "Подбор верного кода товара и действующих ставок пошлины и НДС до подачи декларации.",
 
-      processTag: "ПРОЦЕСС",
-      processTitle: "От заявки до выпуска груза",
-
+      processTag: "Процесс",
+      processTitle: "Путь груза от заявки до выдачи",
       processText:
-        "Четыре последовательных этапа работы с поставкой.",
+        "Четыре этапа оформления груза — от первого обращения до получения товара.",
 
-      step1Title: "Заявка",
+      step1: "Заявка",
       step1Text:
-        "Получаем информацию о грузе и необходимые документы.",
+        "Присылаете документы на груз, мы уточняем код ТН ВЭД и предварительную стоимость.",
 
-      step2Title: "Приём на СВХ",
+      step2: "Приём на СВХ",
       step2Text:
-        "Принимаем груз на склад и фиксируем его основные параметры.",
+        "Груз поступает на склад временного хранения, фиксируем вес и объём.",
 
-      step3Title: "Декларирование",
+      step3: "Декларирование",
       step3Text:
-        "Готовим декларацию и сопровождаем процедуру оформления.",
+        "Подаём декларацию, рассчитываем и оплачиваем пошлину и НДС.",
 
-      step4Title: "Выпуск",
+      step4: "Выпуск груза",
       step4Text:
-        "После выпуска организуем выдачу груза получателю.",
+        "После выпуска таможней выдаём груз или организуем доставку получателю.",
 
-      calculatorTag: "КАЛЬКУЛЯТОР",
-      calculatorTitle: "Предварительный расчёт",
-
+      calculatorTag: "Калькулятор",
+      calculatorTitle: "Рассчитайте стоимость заранее",
       calculatorText:
-        "Рассчитайте ориентировочную сумму таможенных платежей, хранения и брокерских услуг.",
+        "Пошлина, НДС, хранение на СВХ и услуги брокера — один расчёт по одной поставке.",
 
-      product: "Товар",
+      product: "ТОВАР",
       productCost: "Стоимость товара",
       currency: "Валюта",
       exchangeRate: "Курс к тенге",
       dutyRate: "Пошлина, %",
       vatRate: "НДС, %",
 
-      storage: "Хранение на СВХ",
+      storage: "ХРАНЕНИЕ НА СВХ",
       weightKg: "Вес, кг",
       volumeM3: "Объём, м³",
       byWeight: "По весу",
@@ -140,10 +120,12 @@
       storageRate: "Ставка хранения",
       storageDays: "Дней хранения",
 
-      broker: "Брокерские услуги",
+      broker: "БРОКЕРСКИЕ УСЛУГИ",
+      brokerMode: "Режим расчёта",
       fixedAmount: "Фиксированная сумма",
       percentage: "Процент",
       brokerAmount: "Сумма услуг брокера",
+      brokerPercent: "Процент услуг брокера",
 
       calculation: "РАСЧЁТ",
       customsValue: "Таможенная стоимость",
@@ -151,34 +133,24 @@
       vat: "НДС",
       storageCost: "Хранение на СВХ",
       brokerCost: "Брокерские услуги",
-      total: "ИТОГО",
+      total: "Итого к оплате",
 
       calculatorNote:
         "Расчёт является ориентировочным. Фактические ставки зависят от кода ТН ВЭД, условий поставки и действующего законодательства.",
 
-      aboutTag: "О КОМПАНИИ",
+      aboutTag: "О компании",
       aboutTitle: "JWS Group",
-
       aboutText:
         "Сопровождаем импортные поставки в Казахстан: таможенное оформление, хранение на СВХ и брокерское сопровождение.",
-
       contactUs: "Связаться с нами",
 
       about1: "Документы",
-      about1Text: "Подготовка документов для оформления груза.",
-
       about2: "СВХ",
-      about2Text: "Приём и хранение груза до выпуска.",
-
       about3: "Таможня",
-      about3Text: "Сопровождение процедуры декларирования.",
+      about4: "Выдача груза",
 
-      about4: "Выдача",
-      about4Text: "Выдача груза после завершения оформления.",
-
-      contactTag: "КОНТАКТЫ",
-      contactTitle: "Оставьте заявку",
-
+      contactTag: "Контакты",
+      contactTitle: "Оставить заявку",
       contactText:
         "Расскажите о грузе — мы свяжемся с вами и уточним детали оформления.",
 
@@ -187,13 +159,15 @@
       workingHours: "Режим работы",
 
       name: "Имя",
-      phoneEmail: "Телефон или email",
-      cargoDescription: "Информация о грузе",
+      contact: "Телефон или email",
+      message: "Что нужно оформить",
+      send: "Отправить заявку",
 
       cargoPlaceholder:
         "Вес, объём, страна отправления, вид товара",
 
-      send: "Отправить заявку",
+      contactNote:
+        "Контактные данные можно заменить на реальные данные вашей компании.",
 
       formNote:
         "После подключения Formspree заявки будут поступать на вашу почту.",
@@ -210,20 +184,15 @@
       navAbout: "Компания туралы",
       navContact: "Байланыстар",
 
-      leaveRequest: "Өтінім қалдыру",
+      request: "Өтінім қалдыру",
       calculate: "Құнын есептеу",
 
       heroTitle:
-        "Кедендік рәсімдеу және жүкті сақтау — артық кідіріссіз",
+        "Жүкті кедендік рәсімдеу және сақтау — шекарада кідіріссіз",
 
       heroText:
-        "Импорттаушыларға кедендік рәсімдеуден өтуге, жүкті СВХ-ға орналастыруға және оны артық бюрократиясыз шығаруға көмектесеміз.",
+        "JWS Group кедендік декларациялауды жүргізеді, жүктерді уақытша сақтау қоймасына (СВХ) қабылдайды және жеткізуді шекарадан алушыға дейін сүйемелдейді.",
 
-      stat1: "Кедендік рәсімдеу",
-      stat2: "Уақытша сақтау қоймасы",
-      stat3: "Брокерлік сүйемелдеу",
-
-      cargo: "ЖҮК",
       onWay: "ЖОЛДА",
       china: "Қытай",
       border: "Шекара",
@@ -232,121 +201,99 @@
       inTransit: "Жолда",
       days: "күн",
 
-      servicesTag: "ҚЫЗМЕТТЕР",
-      servicesTitle:
-        "Импорттық жүкті толық сүйемелдеу",
-
+      servicesTag: "Қызметтер",
+      servicesTitle: "Біз жүкпен не істейміз",
       servicesText:
-        "Құжаттарды дайындаудан бастап жүкті шығаруға және алушыға беруге дейін.",
+        "Қызметтерді жеке немесе шекарадан алушыға дейін толық цикл ретінде тапсырыс беруге болады.",
 
-      service1Title:
-        "Кедендік декларациялау",
-
+      service1Title: "Кедендік декларациялау",
       service1Text:
-        "Құжаттарды дайындау, декларация беру, кедендік төлемдерді есептеу және кеден органдарымен жұмыс.",
+        "Декларацияны дайындау және беру, баждар мен ҚҚС есептеу, кеден бекетімен жұмыс.",
 
-      service2Title:
-        "СВХ-да сақтау",
-
+      service2Title: "Уақытша сақтау қоймасы",
       service2Text:
-        "Кедендік рәсімдеу кезеңінде жүкті уақытша сақтау қоймасына қабылдау, орналастыру және беру.",
+        "Рәсімдеу кезеңінде жүкті СВХ-ға қабылдау, орналастыру және беру.",
 
-      service3Title:
-        "Брокерлік сүйемелдеу",
-
+      service3Title: "Кеден брокерінің сүйемелдеуі",
       service3Text:
-        "Құжаттарды беруден бастап жүкті шығаруға дейінгі жеткізуді толық сүйемелдеу.",
+        "Құжаттарды беруден жүкті шығаруға дейін мәмілені толық сүйемелдеу.",
 
-      service4Title:
-        "ТН ВЭД коды",
-
+      service4Title: "ТН ВЭД кодын және мөлшерлемелерді анықтау",
       service4Text:
-        "Тауар кодын және кедендік баж бен ҚҚС мөлшерлемелерін анықтауға көмектесеміз.",
+        "Декларацияны бермес бұрын тауардың дұрыс кодын және қолданыстағы баждар мен ҚҚС мөлшерлемелерін анықтау.",
 
-      processTag: "ПРОЦЕСС",
-      processTitle:
-        "Өтінімнен жүкті шығаруға дейін",
-
+      processTag: "Процесс",
+      processTitle: "Өтінімнен жүкті беруге дейін",
       processText:
-        "Жеткізумен жұмыс істеудің төрт негізгі кезеңі.",
+        "Жүкті рәсімдеудің төрт негізгі кезеңі.",
 
-      step1Title: "Өтінім",
+      step1: "Өтінім",
       step1Text:
-        "Жүк туралы ақпарат пен қажетті құжаттарды аламыз.",
+        "Жүк құжаттарын жібересіз, біз ТН ВЭД кодын және алдын ала құнын анықтаймыз.",
 
-      step2Title: "СВХ-ға қабылдау",
+      step2: "СВХ-ға қабылдау",
       step2Text:
-        "Жүкті қоймаға қабылдап, негізгі параметрлерін тіркейміз.",
+        "Жүк уақытша сақтау қоймасына түседі, салмағы мен көлемі тіркеледі.",
 
-      step3Title: "Декларациялау",
+      step3: "Декларациялау",
       step3Text:
-        "Декларацияны дайындап, рәсімдеу процесін сүйемелдейміз.",
+        "Декларация береміз, кедендік баждар мен ҚҚС есептеледі.",
 
-      step4Title: "Шығару",
+      step4: "Жүкті шығару",
       step4Text:
-        "Кеден шығарғаннан кейін жүкті алушыға береміз.",
+        "Кеден шығарғаннан кейін жүкті береміз немесе алушыға жеткізуді ұйымдастырамыз.",
 
-      calculatorTag: "КАЛЬКУЛЯТОР",
-      calculatorTitle:
-        "Алдын ала есептеу",
-
+      calculatorTag: "Калькулятор",
+      calculatorTitle: "Құнын алдын ала есептеңіз",
       calculatorText:
-        "Кедендік төлемдер, сақтау және брокерлік қызметтердің болжамды құнын есептеңіз.",
+        "Кедендік баж, ҚҚС, СВХ сақтау және брокер қызметтері бір есепте.",
 
-      product: "Тауар",
+      product: "ТАУАР",
       productCost: "Тауар құны",
       currency: "Валюта",
-      exchangeRate: "Теңгеге бағам",
+      exchangeRate: "Теңгеге айырбастау бағамы",
       dutyRate: "Баж, %",
       vatRate: "ҚҚС, %",
 
-      storage: "СВХ-да сақтау",
+      storage: "СВХ-ДА САҚТАУ",
       weightKg: "Салмақ, кг",
       volumeM3: "Көлемі, м³",
-      byWeight: "Салмағы бойынша",
-      byVolume: "Көлемі бойынша",
+      byWeight: "Салмақ бойынша",
+      byVolume: "Көлем бойынша",
       storageRate: "Сақтау мөлшерлемесі",
       storageDays: "Сақтау күндері",
 
-      broker: "Брокерлік қызметтер",
+      broker: "БРОКЕР ҚЫЗМЕТТЕРІ",
+      brokerMode: "Есептеу режимі",
       fixedAmount: "Тұрақты сома",
       percentage: "Пайыз",
       brokerAmount: "Брокер қызметінің сомасы",
+      brokerPercent: "Брокер қызметінің пайызы",
 
       calculation: "ЕСЕП",
-      customsValue: "Кедендік құн",
+      customsValue: "Кедендік құны",
       duty: "Баж",
       vat: "ҚҚС",
       storageCost: "СВХ-да сақтау",
-      brokerCost: "Брокерлік қызметтер",
-      total: "БАРЛЫҒЫ",
+      brokerCost: "Брокер қызметтері",
+      total: "Төлеуге барлығы",
 
       calculatorNote:
-        "Есеп алдын ала болып табылады. Нақты мөлшерлемелер ТН ВЭД кодына, жеткізу шарттарына және қолданыстағы заңнамаға байланысты.",
+        "Есеп алдын ала жасалған. Нақты мөлшерлемелер ТН ВЭД кодына, жеткізу шарттарына және қолданыстағы заңнамаға байланысты.",
 
-      aboutTag: "КОМПАНИЯ ТУРАЛЫ",
+      aboutTag: "Компания туралы",
       aboutTitle: "JWS Group",
-
       aboutText:
         "Қазақстанға импорттық жеткізілімдерді сүйемелдейміз: кедендік рәсімдеу, СВХ-да сақтау және брокерлік сүйемелдеу.",
-
       contactUs: "Бізбен байланысу",
 
       about1: "Құжаттар",
-      about1Text: "Жүкті рәсімдеуге қажетті құжаттарды дайындау.",
-
       about2: "СВХ",
-      about2Text: "Жүкті қабылдау және шығарылғанға дейін сақтау.",
-
       about3: "Кеден",
-      about3Text: "Декларациялау процесін сүйемелдеу.",
+      about4: "Жүкті беру",
 
-      about4: "Беру",
-      about4Text: "Рәсімдеу аяқталғаннан кейін жүкті беру.",
-
-      contactTag: "БАЙЛАНЫСТАР",
-      contactTitle: "Өтінім қалдырыңыз",
-
+      contactTag: "Байланыстар",
+      contactTitle: "Өтінім қалдыру",
       contactText:
         "Жүк туралы ақпарат беріңіз — біз сізбен байланысып, рәсімдеу мәліметтерін нақтылаймыз.",
 
@@ -355,16 +302,18 @@
       workingHours: "Жұмыс уақыты",
 
       name: "Аты-жөні",
-      phoneEmail: "Телефон немесе email",
-      cargoDescription: "Жүк туралы ақпарат",
-
-      cargoPlaceholder:
-        "Салмақ, көлем, жөнелту елі, тауар түрі",
-
+      contact: "Телефон немесе email",
+      message: "Не рәсімдеу қажет",
       send: "Өтінім жіберу",
 
+      cargoPlaceholder:
+        "Салмақ, көлемі, жөнелту елі, тауар түрі",
+
+      contactNote:
+        "Байланыс деректерін компанияңыздың нақты деректерімен ауыстыруға болады.",
+
       formNote:
-        "Formspree қосылғаннан кейін өтінімдер электрондық поштаңызға түседі.",
+        "Formspree қосылғаннан кейін өтінімдер электрондық поштаңызға келеді.",
 
       footerText:
         "Кедендік рәсімдеу · СВХ · Брокерлік сүйемелдеу"
@@ -378,20 +327,15 @@
       navAbout: "About us",
       navContact: "Contacts",
 
-      leaveRequest: "Request a quote",
+      request: "Request a quote",
       calculate: "Calculate cost",
 
       heroTitle:
-        "Customs clearance and cargo storage — without unnecessary delays",
+        "Customs clearance and cargo storage — without border delays",
 
       heroText:
-        "We help importers complete customs clearance, receive cargo at a temporary storage warehouse and arrange release without unnecessary bureaucracy.",
+        "JWS Group handles customs declarations, receives cargo at a temporary storage warehouse and supports shipments from the border to the final recipient.",
 
-      stat1: "Customs clearance",
-      stat2: "Temporary storage warehouse",
-      stat3: "Customs broker support",
-
-      cargo: "CARGO",
       onWay: "IN TRANSIT",
       china: "China",
       border: "Border",
@@ -400,75 +344,61 @@
       inTransit: "In transit",
       days: "days",
 
-      servicesTag: "SERVICES",
-      servicesTitle:
-        "Complete support for imported cargo",
-
+      servicesTag: "Services",
+      servicesTitle: "What we do with your cargo",
       servicesText:
-        "From document preparation to cargo release and delivery to the recipient.",
+        "Order individual services or use our complete customs and storage support.",
 
-      service1Title:
-        "Customs declaration",
-
+      service1Title: "Customs declaration",
       service1Text:
-        "Document preparation, declaration submission, customs payment calculation and communication with customs authorities.",
+        "Preparation and submission of declarations, calculation of duties and VAT, and communication with customs.",
 
-      service2Title:
-        "Temporary storage warehouse",
-
+      service2Title: "Temporary storage warehouse",
       service2Text:
         "Cargo reception, storage and release during the customs clearance process.",
 
-      service3Title:
-        "Customs broker support",
-
+      service3Title: "Customs broker support",
       service3Text:
-        "We support the shipment from document submission to cargo release, including communication with customs.",
+        "Full transaction support from document submission to cargo release.",
 
-      service4Title:
-        "TN VED / HS code",
-
+      service4Title: "HS / TN VED code classification",
       service4Text:
-        "We help determine the correct product code and applicable customs duty and VAT rates.",
+        "Selection of the correct product code and applicable duty and VAT rates.",
 
-      processTag: "PROCESS",
-      processTitle:
-        "From request to cargo release",
-
+      processTag: "Process",
+      processTitle: "From request to cargo release",
       processText:
-        "Four consecutive stages of working with your shipment.",
+        "Four key stages of customs clearance.",
 
-      step1Title: "Request",
+      step1: "Request",
       step1Text:
-        "We receive information about the cargo and the required documents.",
+        "Send us the cargo documents and we determine the TN VED code and preliminary cost.",
 
-      step2Title: "Warehouse reception",
+      step2: "Warehouse reception",
       step2Text:
-        "We receive the cargo at the warehouse and record its main parameters.",
+        "Cargo arrives at the temporary storage warehouse and its weight and volume are recorded.",
 
-      step3Title: "Customs declaration",
+      step3: "Customs declaration",
       step3Text:
-        "We prepare the declaration and support the customs clearance procedure.",
+        "We submit the declaration and calculate customs duties and VAT.",
 
-      step4Title: "Release",
+      step4: "Cargo release",
       step4Text:
-        "After customs release, we arrange handover of the cargo to the recipient.",
+        "After customs release, we hand over the cargo or arrange delivery.",
 
-      calculatorTag: "CALCULATOR",
-      calculatorTitle:
-        "Preliminary calculation",
-
+      calculatorTag: "Calculator",
+      calculatorTitle: "Calculate the cost in advance",
       calculatorText:
-        "Calculate the estimated cost of customs payments, storage and broker services.",
+        "Customs duty, VAT, warehouse storage and broker services in one calculation.",
 
-      product: "Product",
+      product: "PRODUCT",
       productCost: "Product value",
       currency: "Currency",
       exchangeRate: "Exchange rate to KZT",
       dutyRate: "Duty, %",
       vatRate: "VAT, %",
 
-      storage: "Temporary storage",
+      storage: "TEMPORARY STORAGE",
       weightKg: "Weight, kg",
       volumeM3: "Volume, m³",
       byWeight: "By weight",
@@ -476,63 +406,57 @@
       storageRate: "Storage rate",
       storageDays: "Storage days",
 
-      broker: "Broker services",
+      broker: "BROKER SERVICES",
+      brokerMode: "Calculation mode",
       fixedAmount: "Fixed amount",
       percentage: "Percentage",
       brokerAmount: "Broker service amount",
+      brokerPercent: "Broker service percentage",
 
       calculation: "CALCULATION",
       customsValue: "Customs value",
-      duty: "Customs duty",
+      duty: "Duty",
       vat: "VAT",
-      storageCost: "Warehouse storage",
+      storageCost: "Temporary storage",
       brokerCost: "Broker services",
-      total: "TOTAL",
+      total: "Total",
 
       calculatorNote:
-        "The calculation is preliminary. Actual rates depend on the TN VED code, delivery terms and applicable legislation.",
+        "This calculation is indicative. Actual rates depend on the HS / TN VED code, delivery terms and applicable legislation.",
 
-      aboutTag: "ABOUT",
+      aboutTag: "About",
       aboutTitle: "JWS Group",
-
       aboutText:
         "We support import shipments to Kazakhstan: customs clearance, temporary storage and customs broker services.",
-
       contactUs: "Contact us",
 
       about1: "Documents",
-      about1Text: "Preparation of documents required for cargo clearance.",
-
       about2: "Warehouse",
-      about2Text: "Cargo reception and storage until release.",
-
       about3: "Customs",
-      about3Text: "Support throughout the customs declaration process.",
+      about4: "Cargo release",
 
-      about4: "Release",
-      about4Text: "Cargo handover after customs clearance is completed.",
-
-      contactTag: "CONTACTS",
+      contactTag: "Contacts",
       contactTitle: "Submit a request",
-
       contactText:
-        "Tell us about your cargo — we will contact you and clarify the clearance details.",
+        "Tell us about your cargo — we will contact you and clarify the customs clearance details.",
 
       phone: "Phone",
       warehouse: "Warehouse address",
       workingHours: "Working hours",
 
       name: "Name",
-      phoneEmail: "Phone or email",
-      cargoDescription: "Cargo information",
+      contact: "Phone or email",
+      message: "What do you need?",
+      send: "Send request",
 
       cargoPlaceholder:
         "Weight, volume, country of origin, type of goods",
 
-      send: "Send request",
+      contactNote:
+        "Replace the contact details with your company's actual information.",
 
       formNote:
-        "After Formspree is connected, requests will be delivered to your email.",
+        "After connecting Formspree, requests will be sent to your email.",
 
       footerText:
         "Customs clearance · Temporary storage · Broker support"
@@ -542,10 +466,8 @@
 
 
   /* =========================
-     LANGUAGE FUNCTIONS
+     LANGUAGE FUNCTION
   ========================= */
-
-  let currentLanguage = "ru";
 
   function setLanguage(lang) {
 
@@ -553,40 +475,37 @@
       lang = "ru";
     }
 
-    currentLanguage = lang;
+    const dictionary = translations[lang];
 
     document.documentElement.lang = lang;
+
+    /* Обычный текст */
 
     document.querySelectorAll("[data-i18n]").forEach(function (element) {
 
       const key = element.getAttribute("data-i18n");
 
-      if (
-        translations[lang][key] !== undefined
-      ) {
-        element.textContent =
-          translations[lang][key];
+      if (Object.prototype.hasOwnProperty.call(dictionary, key)) {
+        element.textContent = dictionary[key];
       }
 
     });
 
+
+    /* Placeholder */
 
     document.querySelectorAll("[data-i18n-placeholder]").forEach(function (element) {
 
-      const key =
-        element.getAttribute(
-          "data-i18n-placeholder"
-        );
+      const key = element.getAttribute("data-i18n-placeholder");
 
-      if (
-        translations[lang][key] !== undefined
-      ) {
-        element.placeholder =
-          translations[lang][key];
+      if (Object.prototype.hasOwnProperty.call(dictionary, key)) {
+        element.placeholder = dictionary[key];
       }
 
     });
 
+
+    /* Активная кнопка языка */
 
     document.querySelectorAll(".lang-btn").forEach(function (button) {
 
@@ -598,28 +517,28 @@
     });
 
 
-    localStorage.setItem(
-      "jws-language",
-      lang
-    );
+    /* Сохраняем язык */
 
+    localStorage.setItem("jws-language", lang);
+
+
+    /* Обновляем подпись брокера */
 
     updateBrokerLabel();
   }
 
 
+  /* =========================
+     LANGUAGE BUTTONS
+  ========================= */
+
   document.querySelectorAll(".lang-btn").forEach(function (button) {
 
-    button.addEventListener(
-      "click",
-      function () {
+    button.addEventListener("click", function () {
 
-        setLanguage(
-          button.dataset.lang
-        );
+      setLanguage(button.dataset.lang);
 
-      }
-    );
+    });
 
   });
 
@@ -655,10 +574,8 @@
 
   let brokerMode = "fixed";
 
-  const brokerButtons =
-    document.querySelectorAll(
-      ".broker-btn"
-    );
+
+  const brokerToggle = $("brokerToggle");
 
 
   function number(element) {
@@ -667,8 +584,7 @@
       return 0;
     }
 
-    const value =
-      parseFloat(element.value);
+    const value = parseFloat(element.value);
 
     return Number.isFinite(value)
       ? value
@@ -684,63 +600,78 @@
   }
 
 
+  /* =========================
+     BROKER LABEL
+  ========================= */
+
   function updateBrokerLabel() {
 
-    const label =
-      $("brokerLabel");
+    const label = $("brokerValueLabel");
 
     if (!label) {
       return;
     }
 
-    const key =
+    const lang =
+      document.documentElement.lang || "ru";
+
+    const dictionary =
+      translations[lang] || translations.ru;
+
+    label.textContent =
       brokerMode === "fixed"
-        ? "brokerAmount"
-        : "percentage";
+        ? dictionary.brokerAmount
+        : dictionary.brokerPercent;
+  }
 
-    if (translations[currentLanguage][key]) {
 
-      label.textContent =
-        brokerMode === "fixed"
-          ? translations[currentLanguage].brokerAmount
-          : translations[currentLanguage].percentage;
+  /* =========================
+     BROKER TOGGLE
+  ========================= */
 
-    }
+  if (brokerToggle) {
+
+    brokerToggle.addEventListener("click", function (event) {
+
+      const button =
+        event.target.closest("button[data-mode]");
+
+      if (!button) {
+        return;
+      }
+
+      brokerMode = button.dataset.mode;
+
+
+      brokerToggle
+        .querySelectorAll("button[data-mode]")
+        .forEach(function (btn) {
+
+          btn.setAttribute(
+            "aria-pressed",
+            String(btn === button)
+          );
+
+          btn.classList.toggle(
+            "active",
+            btn === button
+          );
+
+        });
+
+
+      updateBrokerLabel();
+
+      calculate();
+
+    });
 
   }
 
 
-  brokerButtons.forEach(function (button) {
-
-    button.addEventListener(
-      "click",
-      function () {
-
-        brokerMode =
-          button.dataset.mode || "fixed";
-
-
-        brokerButtons.forEach(
-          function (btn) {
-
-            btn.classList.toggle(
-              "active",
-              btn === button
-            );
-
-          }
-        );
-
-
-        updateBrokerLabel();
-
-        calculate();
-
-      }
-    );
-
-  });
-
+  /* =========================
+     CALCULATE
+  ========================= */
 
   function calculate() {
 
@@ -767,18 +698,12 @@
 
     const duty =
       customsValue *
-      (
-        number(inputs.duty) / 100
-      );
+      (number(inputs.duty) / 100);
 
 
     const vat =
-      (
-        customsValue + duty
-      ) *
-      (
-        number(inputs.vat) / 100
-      );
+      (customsValue + duty) *
+      (number(inputs.vat) / 100);
 
 
     const basisElement =
@@ -862,28 +787,31 @@
   }
 
 
-  const calculator =
-    document.querySelector(
-      ".calculator"
-    );
+  /* =========================
+     CALCULATOR EVENTS
+  ========================= */
+
+  const calcForm =
+    $("calcForm");
 
 
-  if (calculator) {
+  if (calcForm) {
 
-    calculator.addEventListener(
+    calcForm.addEventListener(
       "input",
       calculate
     );
 
-    calculator.addEventListener(
+
+    calcForm.addEventListener(
       "change",
       calculate
     );
 
+
+    calculate();
+
   }
-
-
-  calculate();
 
 
   /* =========================
@@ -892,6 +820,7 @@
 
   const contactForm =
     $("contactForm");
+
 
   const formStatus =
     $("formStatus");
@@ -907,7 +836,9 @@
 
 
         const submitButton =
-          $("submitButton");
+          contactForm.querySelector(
+            'button[type="submit"]'
+          );
 
 
         if (submitButton) {
@@ -917,13 +848,17 @@
 
         if (formStatus) {
 
-          formStatus.textContent =
-            currentLanguage === "kz"
-              ? "Өтінім жіберілуде…"
-              : currentLanguage === "en"
-                ? "Sending request…"
-                : "Отправляем заявку…";
+          const lang =
+            document.documentElement.lang || "ru";
 
+          const sendingText = {
+            ru: "Отправляем заявку…",
+            kz: "Өтінім жіберілуде…",
+            en: "Sending request…"
+          };
+
+          formStatus.textContent =
+            sendingText[lang] || sendingText.ru;
         }
 
 
@@ -934,15 +869,9 @@
               contactForm.action,
               {
                 method: "POST",
-
-                body:
-                  new FormData(
-                    contactForm
-                  ),
-
+                body: new FormData(contactForm),
                 headers: {
-                  Accept:
-                    "application/json"
+                  Accept: "application/json"
                 }
               }
             );
@@ -952,31 +881,37 @@
 
             if (formStatus) {
 
-              formStatus.textContent =
-                currentLanguage === "kz"
-                  ? "Өтінім жіберілді. Жақын уақытта сізбен байланысамыз."
-                  : currentLanguage === "en"
-                    ? "Request sent. We will contact you shortly."
-                    : "Заявка отправлена. Мы свяжемся с вами в ближайшее время.";
+              const lang =
+                document.documentElement.lang || "ru";
 
+              const successText = {
+                ru: "Заявка отправлена. Мы свяжемся с вами в ближайшее время.",
+                kz: "Өтінім жіберілді. Жақын арада сізбен байланысамыз.",
+                en: "Request sent. We will contact you shortly."
+              };
+
+              formStatus.textContent =
+                successText[lang] || successText.ru;
             }
 
 
             contactForm.reset();
 
-            calculate();
-
           } else {
 
             if (formStatus) {
 
-              formStatus.textContent =
-                currentLanguage === "kz"
-                  ? "Өтінімді жіберу мүмкін болмады. Formspree баптауларын тексеріңіз."
-                  : currentLanguage === "en"
-                    ? "The request could not be sent. Check your Formspree settings."
-                    : "Не удалось отправить заявку. Проверьте настройки Formspree.";
+              const lang =
+                document.documentElement.lang || "ru";
 
+              const errorText = {
+                ru: "Не удалось отправить заявку. Проверьте настройки Formspree.",
+                kz: "Өтінімді жіберу мүмкін болмады. Formspree баптауларын тексеріңіз.",
+                en: "The request could not be sent. Check your Formspree settings."
+              };
+
+              formStatus.textContent =
+                errorText[lang] || errorText.ru;
             }
 
           }
@@ -985,13 +920,17 @@
 
           if (formStatus) {
 
-            formStatus.textContent =
-              currentLanguage === "kz"
-                ? "Қосылу қатесі. Интернетті тексеріп, қайталап көріңіз."
-                : currentLanguage === "en"
-                  ? "Connection error. Check your internet connection and try again."
-                  : "Ошибка подключения. Проверьте интернет и попробуйте ещё раз.";
+            const lang =
+              document.documentElement.lang || "ru";
 
+            const connectionText = {
+              ru: "Ошибка подключения. Проверьте интернет и попробуйте ещё раз.",
+              kz: "Қосылым қатесі. Интернетті тексеріп, қайта көріңіз.",
+              en: "Connection error. Check your internet connection and try again."
+            };
+
+            formStatus.textContent =
+              connectionText[lang] || connectionText.ru;
           }
 
         } finally {
@@ -1009,7 +948,7 @@
 
 
   /* =========================
-     CURRENT YEAR
+     YEAR
   ========================= */
 
   const year =
