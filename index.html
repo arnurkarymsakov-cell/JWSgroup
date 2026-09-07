@@ -9,7 +9,7 @@
 
   <meta
     name="description"
-    content="JWS Group — таможенное декларирование, хранение на СВХ и брокерское сопровождение грузов из Китая в Казахстан."
+    content="JWS Group — таможенное декларирование, хранение на СВХ и брокерское сопровождение грузов из Китая в Каз[...]"
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,7 +79,6 @@
     <div class="nav-actions">
 
       <!-- LANGUAGE SWITCHER -->
-```html
 <div class="language-switcher" aria-label="Выбор языка">
   <button
     type="button"
@@ -108,9 +107,6 @@
     EN
   </button>
 </div>
-```
-
-
 
       <!-- CTA -->
 
@@ -169,7 +165,7 @@
 
 
         <p class="lede" data-i18n="heroText">
-          JWS Group ведёт таможенное декларирование, принимает грузы на собственный склад временного хранения (СВХ) и сопровождает поставку от границы до получателя.
+          JWS Group ведёт таможенное декларирование, принимает грузы на собственный склад временного хранения (СВХ)[...]
         </p>
 
 
@@ -1055,45 +1051,30 @@
               </div>
 
 
-            </dl>
+              <div class="line line--total">
 
-
-            <div class="receipt__total">
-
-
-              <div class="receipt__total-label">
-
-                <span data-i18n="total">
+                <dt data-i18n="total">
                   Итого к оплате
-                </span>
+                </dt>
 
-                <small>
-                  JWS / ESTIMATE
-                </small>
+                <span class="leader"></span>
+
+                <dd id="outTotal">
+                  0 ₸
+                </dd>
 
               </div>
 
-
-              <strong
-                class="readout-total"
-                id="outTotal"
-              >
-                0 ₸
-              </strong>
+            </dl>
 
 
-            </div>
-
-
-            <p
-              class="foot-note"
-              data-i18n="calculatorNote"
-            >
-              Расчёт является ориентировочным. Фактические ставки зависят от кода ТН ВЭД, условий поставки и действующего законодательства.
+            <p class="note" data-i18n="calculatorNote">
+              Расчёт является ориентировочным. Фактические ставки зависят от кода ТН ВЭД, условий поставки и действую[...]
             </p>
 
 
           </aside>
+
 
         </div>
 
@@ -1112,13 +1093,9 @@
 
     <div class="wrap">
 
-
       <div class="section-head">
 
-        <div
-          class="section-tag"
-          data-i18n="aboutTag"
-        >
+        <div class="section-tag" data-i18n="aboutTag">
           О компании
         </div>
 
@@ -1127,62 +1104,58 @@
           JWS Group
         </h2>
 
+
+        <p data-i18n="aboutText">
+          Сопровождаем импортные поставки в Казахстан: таможенное оформление, хранение на СВХ и брокерское сопровождение
+        </p>
+
       </div>
 
 
-      <div class="about-grid">
+      <div class="grid about-grid">
 
+        <div class="panel">
 
-        <div>
+          <h4 data-i18n="about1">Документы</h4>
 
-          <p data-i18n="aboutText">
-            Сопровождаем импортные поставки в Казахстан: таможенное оформление, хранение на СВХ и брокерское сопровождение.
+          <p>
+            Подготовка комплекта документов для таможенной декларации и сопровождение проверки.
           </p>
-
-
-          <a
-            class="btn btn--solid"
-            href="#contact"
-            data-i18n="contactUs"
-          >
-            Связаться с нами
-          </a>
 
         </div>
 
 
-        <ul class="checklist">
+        <div class="panel">
+
+          <h4 data-i18n="about2">СВХ</h4>
+
+          <p>
+            Приём, хранение и выдача груза на складе временного хранения.
+          </p>
+
+        </div>
 
 
-          <li>
-            <span data-i18n="about1">
-              Документы
-            </span>
-          </li>
+        <div class="panel">
+
+          <h4 data-i18n="about3">Таможня</h4>
+
+          <p>
+            Взаимодействие с таможенными органами и оформление выпуска.
+          </p>
+
+        </div>
 
 
-          <li>
-            <span data-i18n="about2">
-              СВХ
-            </span>
-          </li>
+        <div class="panel">
 
+          <h4 data-i18n="about4">Выдача груза</h4>
 
-          <li>
-            <span data-i18n="about3">
-              Таможня
-            </span>
-          </li>
+          <p>
+            Передача груза получателю или организация доставки.
+          </p>
 
-
-          <li>
-            <span data-i18n="about4">
-              Выдача груза
-            </span>
-          </li>
-
-
-        </ul>
+        </div>
 
       </div>
 
@@ -1197,244 +1170,74 @@
 
   <section id="contact">
 
-    <div class="wrap">
+    <div class="wrap contact-wrap">
 
+      <div class="panel contact-panel">
 
-      <div class="section-head">
+        <h2 data-i18n="contactTitle">Оставить заявку</h2>
 
-        <div
-          class="section-tag"
-          data-i18n="contactTag"
-        >
-          Контакты
-        </div>
+        <p data-i18n="contactText">Расскажите о грузе — мы свяжемся с вами и уточним детали оформления.</p>
 
+        <form id="contactForm" action="ЗАМЕНИТЕ_НА_СВОЙ_ID" method="POST">
 
-        <h2 data-i18n="contactTitle">
-          Оставить заявку
-        </h2>
-
-
-        <p data-i18n="contactText">
-          Расскажите о грузе — мы свяжемся с вами и уточним детали оформления.
-        </p>
-
-      </div>
-
-
-      <div class="contact-grid">
-
-
-        <div class="contact-info">
-
-          <dl>
-
-
-            <div>
-
-              <dt data-i18n="phone">
-                Телефон
-              </dt>
-
-              <dd>
-                [укажите номер телефона]
-              </dd>
-
-            </div>
-
-
-            <div>
-
-              <dt data-i18n="email">
-                Email
-              </dt>
-
-              <dd>
-                [укажите email]
-              </dd>
-
-            </div>
-
-
-            <div>
-
-              <dt data-i18n="warehouse">
-                Адрес СВХ
-              </dt>
-
-              <dd>
-                [укажите адрес склада]
-              </dd>
-
-            </div>
-
-
-            <div>
-
-              <dt data-i18n="workingHours">
-                Режим работы
-              </dt>
-
-              <dd>
-                [укажите часы работы]
-              </dd>
-
-            </div>
-
-
-          </dl>
-
-
-          <div
-            class="placeholder-note"
-            data-i18n="contactNote"
-          >
-            Контактные данные можно заменить на реальные данные вашей компании.
+          <div class="field">
+            <label for="name" data-i18n="name">Имя</label>
+            <input id="name" name="name" required>
           </div>
 
-        </div>
-
-
-        <!-- CONTACT FORM -->
-
-        <form
-          class="contact-form"
-          id="contactForm"
-          action="https://formspree.io/f/ЗАМЕНИТЕ_НА_СВОЙ_ID"
-          method="POST"
-        >
-
-
-          <div class="cf-field">
-
-            <label
-              for="name"
-              data-i18n="name"
-            >
-              Имя
-            </label>
-
-
-            <input
-              type="text"
-              id="name"
-              name="name"
-              required
-            >
-
+          <div class="field">
+            <label for="contact" data-i18n="contact">Телефон или email</label>
+            <input id="contact" name="contact" required>
           </div>
 
-
-          <div class="cf-field">
-
-            <label
-              for="contactField"
-              data-i18n="contact"
-            >
-              Телефон или email
-            </label>
-
-
-            <input
-              type="text"
-              id="contactField"
-              name="contact"
-              required
-            >
-
+          <div class="field">
+            <label for="message" data-i18n="message">Что нужно оформить</label>
+            <textarea id="message" name="message" placeholder="" data-i18n-placeholder="cargoPlaceholder"></textarea>
           </div>
 
+          <div id="formStatus" class="form-status"></div>
 
-          <div class="cf-field">
+          <button type="submit" class="btn btn--solid" data-i18n="send">Отправить заявку</button>
 
-            <label
-              for="message"
-              data-i18n="message"
-            >
-              Что нужно оформить
-            </label>
-
-
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              data-i18n-placeholder="cargoPlaceholder"
-              placeholder="Вес, объём, страна отправления, вид товара"
-            ></textarea>
-
-          </div>
-
-
-          <button
-            type="submit"
-            class="btn btn--solid"
-            data-i18n="send"
-          >
-            Отправить заявку
-          </button>
-
-
-          <p
-            class="form-status"
-            id="formStatus"
-            data-i18n="formNote"
-          >
-            После подключения Formspree заявки будут поступать на вашу почту.
-          </p>
-
+          <p class="form-note" data-i18n="formNote">После подключения Formspree заявки будут поступать на вашу почту.</p>
 
         </form>
 
       </div>
 
+      <aside class="panel contact-info">
+
+        <h3 data-i18n="contactUs">Связаться с нами</h3>
+
+        <p><strong data-i18n="phone">Телефон</strong><br>+7 (727) 000-00-00</p>
+
+        <p><strong data-i18n="warehouse">Адрес СВХ</strong><br>г. Алма-Ата, индустриальная зона</p>
+
+        <p><strong data-i18n="workingHours">Режим работы</strong><br>Пн–Пт 9:00–18:00</p>
+
+      </aside>
+
     </div>
 
   </section>
 
-</main>
 
+  <footer class="site-footer">
 
-<!-- =====================================================
-     FOOTER
-====================================================== -->
+    <div class="wrap footer-wrap">
 
-<footer class="site">
+      <p class="footer-text" data-i18n="footerText">Таможенное оформление · СВХ · Брокерское сопровождение</p>
 
-  <div class="wrap footer-row">
-
-
-    <div class="logo">
-
-      <span class="live-dot"></span>
-
-      <span>
-        JWS GROUP
-      </span>
+      <p class="copyright">© <span id="year"></span> JWS Group</p>
 
     </div>
 
+  </footer>
 
-    <span data-i18n="footerText">
-      Таможенное оформление · СВХ · Брокерское сопровождение
-    </span>
-
-
-    <span>
-      ©
-      <span id="year"></span>
-      JWS Group
-    </span>
-
-
-  </div>
-
-</footer>
-
-
-<!-- JAVASCRIPT -->
+</main>
 
 <script src="script.js"></script>
 
 </body>
+
 </html>
