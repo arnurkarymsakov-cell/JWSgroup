@@ -195,21 +195,72 @@
 
       <!-- TRACKER -->
 
-      <div class="panel tracker">
+      <!--
+  ЗАМЕНИТЕ существующий блок <div class="panel tracker">...</div>
+  в index.html (внутри секции HERO) на этот целиком.
+-->
 
-        <div class="tracker-head">
+<div class="panel tracker" id="trackerWidget">
 
-          <span>
-            JWS / CARGO 01
-          </span>
+  <form class="tracker-search" id="trackerSearchForm">
+    <input
+      type="text"
+      id="trackerInput"
+      placeholder="Номер груза, напр. A20260717"
+      autocomplete="off"
+      required
+    >
+    <button type="submit">Найти</button>
+  </form>
 
-          <span
-            class="status"
-            data-i18n="onWay"
-          >
-            В ПУТИ
-          </span>
+  <div id="trackerResult">
 
+    <div class="tracker-head">
+      <span id="trackerId">JWS / CARGO 01</span>
+      <span class="status" id="trackerStatus">В ПУТИ</span>
+    </div>
+
+    <div class="route-line">
+      <span class="node active" id="node1"></span>
+      <span class="seg"></span>
+      <span class="node active" id="node2"></span>
+      <span class="seg"></span>
+      <span class="node end" id="node3"></span>
+    </div>
+
+    <div class="route-labels">
+      <span id="originLabel">Shenzhen<br><small>Китай</small></span>
+      <span id="borderLabel">Khorgos<br><small>Граница</small></span>
+      <span id="destLabel">Almaty<br><small>СВХ</small></span>
+    </div>
+
+    <dl class="tracker-meta">
+      <div>
+        <dt>Вес</dt>
+        <dd id="trackerWeight">120 кг</dd>
+      </div>
+      <div>
+        <dt>Статус</dt>
+        <dd id="trackerStatusMeta">В пути</dd>
+      </div>
+      <div>
+        <dt>ETA</dt>
+        <dd id="trackerEta">3 <span>дня</span></dd>
+      </div>
+    </dl>
+
+  </div>
+
+  <p id="trackerError" class="tracker-error" hidden>
+    Груз с таким номером не найден. Проверьте номер или свяжитесь с нами.
+  </p>
+
+</div>
+
+<!--
+  Перед закрывающим </body> (там же, где подключён script.js), добавьте:
+  <script src="tracker.js"></script>
+-->
         </div>
 
 
