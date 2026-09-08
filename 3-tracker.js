@@ -6,8 +6,7 @@
 // ============================================================
 
 // ЗАМЕНИТЕ на вашу ссылку из шага 5 инструкции (Publish to web → CSV)
-const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMCQZcWxrqZmFBkp9bDDB8ICDUSMUfg3KlpWbkmSI-K6uXMrb3x0j0IxQZVYRS3SbGuRH8-hxcg6zr/pub?output=csv";
-
+const SHEET_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSMCQZcWxrqZmFBkp9bDDB8ICDUSMUfg3KlpWbkmSI-K6uXMrb3x0j0IxQZVYRS3SbGuRH8-hxcg6zr/pub?output=csv"
 let trackerRows = null; // кэш строк таблицы после первой загрузки
 
 // Разбор одной CSV-строки с учётом кавычек (на случай запятых внутри значений)
