@@ -2026,3 +2026,239 @@ width: 34px;
   font-size: 13px;
   line-height: 1.5;
 }
+/* =====================================================
+   JWS GROUP — CARGO ROUTE
+===================================================== */
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(460px, 560px);
+  gap: 70px;
+  align-items: center;
+  min-height: 620px;
+}
+
+.hero-content {
+  max-width: 680px;
+}
+
+
+/* TRACKER */
+
+.tracker {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.tracker-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+
+/* ROUTE */
+
+.cargo-route {
+  display: grid;
+  grid-template-columns: auto minmax(45px, 1fr) auto minmax(65px, 1.2fr) auto;
+  align-items: center;
+  gap: 0;
+  margin: 30px 0 26px;
+}
+
+.route-point {
+  min-width: 76px;
+  text-align: center;
+}
+
+.route-icon {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid rgba(69, 190, 199, .65);
+  border-radius: 50%;
+
+  background: #10232f;
+}
+
+.route-icon svg {
+  width: 21px;
+  height: 21px;
+
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  color: #43c1c8;
+}
+
+.route-point.end .route-icon {
+  border-color: #e7a936;
+}
+
+.route-point.end .route-icon svg {
+  color: #e7a936;
+}
+
+.route-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: #f2f5f7;
+}
+
+.route-sub {
+  margin-top: 3px;
+  font-size: 11px;
+  color: #6f8999;
+}
+
+
+/* CONNECTION */
+
+.route-connection {
+  position: relative;
+  height: 2px;
+
+  background:
+    repeating-linear-gradient(
+      to right,
+      #3fbac3 0,
+      #3fbac3 6px,
+      transparent 6px,
+      transparent 11px
+    );
+}
+
+.route-connection.transit {
+  background:
+    repeating-linear-gradient(
+      to right,
+      #e7a936 0,
+      #e7a936 6px,
+      transparent 6px,
+      transparent 11px
+    );
+}
+
+
+/* TRUCK */
+
+.truck-indicator {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  width: 34px;
+  height: 34px;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #e7a936;
+  border-radius: 50%;
+
+  background: #0d1c26;
+
+  z-index: 2;
+}
+
+.truck-indicator svg {
+  width: 19px;
+  height: 19px;
+
+  fill: none;
+  stroke: #e7a936;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+
+/* TRACKER META */
+
+.tracker-meta {
+  margin-top: 0;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 900px) {
+
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    min-height: auto;
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .hero-content {
+    max-width: none;
+  }
+
+  .tracker {
+    max-width: 650px;
+  }
+
+}
+
+
+@media (max-width: 560px) {
+
+  .cargo-route {
+    grid-template-columns:
+      auto
+      minmax(20px, 1fr)
+      auto
+      minmax(30px, 1fr)
+      auto;
+  }
+
+  .route-point {
+    min-width: 60px;
+  }
+
+  .route-icon {
+    width: 36px;
+    height: 36px;
+  }
+
+  .route-icon svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  .route-name {
+    font-size: 11px;
+  }
+
+  .route-sub {
+    font-size: 9px;
+  }
+
+  .truck-indicator {
+    width: 30px;
+    height: 30px;
+  }
+
+}
