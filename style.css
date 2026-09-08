@@ -1974,3 +1974,55 @@ width: 34px;
 }
 
 }
+
+/* Добавьте этот блок в конец style.css */
+
+.tracker-search {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tracker-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  background: var(--bg-panel-deep);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 13px;
+  outline: none;
+}
+
+.tracker-search input:focus {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 1px rgba(63, 182, 190, 0.15);
+}
+
+.tracker-search button {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border: 1px solid var(--teal);
+  border-radius: 2px;
+  background: var(--teal);
+  color: var(--bg);
+  font-family: var(--sans);
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.tracker-search button:hover {
+  background: var(--teal-deep);
+  border-color: var(--teal-deep);
+}
+
+.tracker-error {
+  margin: 4px 0 0;
+  color: var(--amber);
+  font-size: 13px;
+  line-height: 1.5;
+}
