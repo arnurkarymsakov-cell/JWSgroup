@@ -144,168 +144,260 @@
 <main id="top">
 
 
-  <!-- =====================================================
-       HERO
-  ====================================================== -->
+ <!-- =====================================================
+     HERO
+====================================================== -->
+    
+<section class="hero-section">
 
-  <section>
+  <div class="wrap hero">
 
-    <div class="wrap hero">
+    <!-- LEFT CONTENT -->
+    <div class="hero-content">
 
-      <div>
+      <div class="section-tag">
+        JWS GROUP · KAZAKHSTAN
+      </div>
 
-        <div class="section-tag">
-          JWS GROUP · KAZAKHSTAN
-        </div>
+      <h1 data-i18n="heroTitle">
+        Растаможка и хранение груза — без задержек на границе
+      </h1>
+
+      <p class="lede" data-i18n="heroText">
+        JWS Group ведёт таможенное декларирование, принимает
+        грузы на собственный склад временного хранения (СВХ)
+        и сопровождает поставки от границы до получателя.
+      </p>
+
+      <div class="hero-ctas">
+
+        <a
+          class="btn btn--solid"
+          href="#contact"
+          data-i18n="request"
+        >
+          Оставить заявку
+        </a>
+
+        <a
+          class="btn"
+          href="#calculator"
+          data-i18n="calculate"
+        >
+          Рассчитать стоимость
+        </a>
+
+      </div>
+
+    </div>
 
 
-        <h1 data-i18n="heroTitle">
-          Растаможка и хранение груза — без задержек на границе
-        </h1>
+    <!-- CARGO TRACKER -->
+    <div class="panel tracker" id="trackerWidget">
+
+      <form
+        class="tracker-search"
+        id="trackerSearchForm"
+      >
+
+        <input
+          type="text"
+          id="trackerInput"
+          placeholder="Номер груза, напр. A20260717"
+          autocomplete="off"
+          required
+        >
+
+        <button type="submit">
+          Найти
+        </button>
+
+      </form>
 
 
-        <p class="lede" data-i18n="heroText">
-          JWS Group ведёт таможенное декларирование, принимает грузы на собственный склад временного хранения (СВХ)[...]
-        </p>
+      <div id="trackerResult">
 
+        <div class="tracker-head">
 
-        <div class="hero-ctas">
+          <span id="trackerId">
+            JWS / CARGO 01
+          </span>
 
-          <a
-            class="btn btn--solid"
-            href="#contact"
-            data-i18n="request"
+          <span
+            class="status"
+            id="trackerStatus"
           >
-            Оставить заявку
-          </a>
-
-
-          <a
-            class="btn"
-            href="#calculator"
-            data-i18n="calculate"
-          >
-            Рассчитать стоимость
-          </a>
-
-        </div>
-
-      </div>
-
-
-      <!-- TRACKER -->
-
-      <!--
-  ЗАМЕНИТЕ существующий блок <div class="panel tracker">...</div>
-  в index.html (внутри секции HERO) на этот целиком.
--->
-
-<div class="panel tracker" id="trackerWidget">
-
-  <form class="tracker-search" id="trackerSearchForm">
-    <input
-      type="text"
-      id="trackerInput"
-      placeholder="Номер груза, напр. A20260717"
-      autocomplete="off"
-      required
-    >
-    <button type="submit">Найти</button>
-  </form>
-
-  <div id="trackerResult">
-
-    <div class="tracker-head">
-      <span id="trackerId">JWS / CARGO 01</span>
-      <span class="status" id="trackerStatus">В ПУТИ</span>
-    </div>
-
-    <div class="route-line">
-      <span class="node active" id="node1"></span>
-      <span class="seg"></span>
-      <span class="node active" id="node2"></span>
-      <span class="seg"></span>
-      <span class="node end" id="node3"></span>
-    </div>
-
-    <div class="route-labels">
-      <span id="originLabel">Shenzhen<br><small>Китай</small></span>
-      <span id="borderLabel">Khorgos<br><small>Граница</small></span>
-      <span id="destLabel">Almaty<br><small>СВХ</small></span>
-    </div>
-
-    <dl class="tracker-meta">
-      <div>
-        <dt>Вес</dt>
-        <dd id="trackerWeight">120 кг</dd>
-      </div>
-      <div>
-        <dt>Статус</dt>
-        <dd id="trackerStatusMeta">В пути</dd>
-      </div>
-      <div>
-        <dt>ETA</dt>
-        <dd id="trackerEta">3 <span>дня</span></dd>
-      </div>
-    </dl>
-
-  </div>
-
-  <p id="trackerError" class="tracker-error" hidden>
-    Груз с таким номером не найден. Проверьте номер или свяжитесь с нами.
-  </p>
-
-</div>
-
-<!--
-  Перед закрывающим </body> (там же, где подключён script.js), добавьте:
-  <script src="tracker.js"></script>
--->
-        </div>
-
-
-        <div class="route-line">
-
-          <span class="node active"></span>
-
-          <span class="seg"></span>
-
-          <span class="node active"></span>
-
-          <span class="seg"></span>
-
-          <span class="node end"></span>
+            В ПУТИ
+          </span>
 
         </div>
 
 
-        <div class="route-labels">
+        <!-- ROUTE -->
+        <div class="cargo-route">
 
-          <span>
-            Shenzhen<br>
-            <small data-i18n="china">
+
+          <!-- CHINA WAREHOUSE -->
+          <div class="route-point active">
+
+            <div class="route-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 10.5 12 4l9 6.5"
+                />
+                <path
+                  d="M5 10v9h14v-9"
+                />
+                <path
+                  d="M8 19v-5h8v5"
+                />
+                <path
+                  d="M8 10h8"
+                />
+              </svg>
+
+            </div>
+
+            <div class="route-name">
+              Shenzhen
+            </div>
+
+            <div class="route-sub">
               Китай
-            </small>
-          </span>
+            </div>
+
+          </div>
 
 
-          <span>
-            Khorgos<br>
-            <small data-i18n="border">
+          <!-- LINE -->
+          <div class="route-connection active">
+            <span></span>
+          </div>
+
+
+          <!-- BORDER -->
+          <div class="route-point active">
+
+            <div class="route-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 20h16"
+                />
+                <path
+                  d="M6 20V6h12v14"
+                />
+                <path
+                  d="M6 9h12"
+                />
+                <path
+                  d="M9 6V4h6v2"
+                />
+                <path
+                  d="M10 13h4"
+                />
+              </svg>
+
+            </div>
+
+            <div class="route-name">
+              Khorgos
+            </div>
+
+            <div class="route-sub">
               Граница
-            </small>
-          </span>
+            </div>
+
+          </div>
 
 
-          <span>
-            Almaty<br>
-            <small data-i18n="warehouseShort">
+          <!-- LINE / TRUCK IN TRANSIT -->
+          <div class="route-connection transit">
+
+            <span></span>
+
+            <div class="truck-indicator">
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M3 6h11v11H3z"
+                />
+                <path
+                  d="M14 10h4l3 3v4h-7z"
+                />
+                <circle
+                  cx="7"
+                  cy="19"
+                  r="2"
+                />
+                <circle
+                  cx="18"
+                  cy="19"
+                  r="2"
+                />
+
+              </svg>
+
+            </div>
+
+          </div>
+
+
+          <!-- ALMATY / SVH -->
+          <div class="route-point end">
+
+            <div class="route-icon">
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="M4 20V5h16v15"
+                />
+                <path
+                  d="M8 20v-6h8v6"
+                />
+                <path
+                  d="M8 9h2"
+                />
+                <path
+                  d="M14 9h2"
+                />
+                <path
+                  d="M8 12h2"
+                />
+                <path
+                  d="M14 12h2"
+                />
+              </svg>
+
+            </div>
+
+            <div class="route-name">
+              Almaty
+            </div>
+
+            <div class="route-sub">
               СВХ
-            </small>
-          </span>
+            </div>
+
+          </div>
 
         </div>
 
+
+        <!-- TRACKER DATA -->
 
         <dl class="tracker-meta">
 
@@ -315,7 +407,7 @@
               Вес
             </dt>
 
-            <dd>
+            <dd id="trackerWeight">
               120 кг
             </dd>
 
@@ -328,7 +420,7 @@
               Статус
             </dt>
 
-            <dd data-i18n="inTransit">
+            <dd id="trackerStatusMeta">
               В пути
             </dd>
 
@@ -341,7 +433,7 @@
               ETA
             </dt>
 
-            <dd>
+            <dd id="trackerEta">
               3
               <span data-i18n="days">
                 дня
@@ -354,7 +446,21 @@
 
       </div>
 
+
+      <!-- ERROR -->
+
+      <p
+        id="trackerError"
+        class="tracker-error"
+        hidden
+      >
+        Груз с таким номером не найден.
+        Проверьте номер или свяжитесь с нами.
+      </p>
+
     </div>
+
+  </div>
 
   </section>
 
