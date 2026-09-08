@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>JWS Group — Зона таможенного контроля СВХ и Таможенное оформление</title>
+  <title>JWS Group — Таможенное оформление, СВХ и ЗКТ</title>
 
   <meta
     name="description"
-    content="JWS Group — таможенное декларирование, хранение на СВХ и брокерское сопровождение грузов из Китая в Каз[...]"
+    content="JWS Group — таможенное оформление, склад временного хранения, зона таможенного контроля и брокерское сопровождение грузов."
   >
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -29,15 +29,19 @@
 
   <div class="wrap nav">
 
-    <a class="logo" href="#top">
+    <a class="logo" href="#top" aria-label="JWS Group">
+
       <span class="live-dot"></span>
-      <span>JWS GROUP</span>
-      <span class="tag">JWS GROUP
-Зона таможенного контроля · СВХ · Таможенное оформление</span>
+
+      <span class="logo-name">JWS GROUP</span>
+
+      <span class="tag">
+        ЗКТ · СВХ · ТАМОЖЕННОЕ ОФОРМЛЕНИЕ
+      </span>
+
     </a>
 
-
-    <nav id="main-navigation">
+    <nav id="main-navigation" aria-label="Основная навигация">
 
       <ul class="nav-links">
 
@@ -75,40 +79,38 @@
 
     </nav>
 
-
     <div class="nav-actions">
 
-      <!-- LANGUAGE SWITCHER -->
-<div class="language-switcher" aria-label="Выбор языка">
-  <button
-    type="button"
-    class="lang-btn active"
-    data-lang="ru"
-    aria-pressed="true"
-  >
-    RU
-  </button>
+      <div class="language-switcher" aria-label="Выбор языка">
 
-  <button
-    type="button"
-    class="lang-btn"
-    data-lang="kz"
-    aria-pressed="false"
-  >
-    KZ
-  </button>
+        <button
+          type="button"
+          class="lang-btn active"
+          data-lang="ru"
+          aria-pressed="true"
+        >
+          RU
+        </button>
 
-  <button
-    type="button"
-    class="lang-btn"
-    data-lang="en"
-    aria-pressed="false"
-  >
-    EN
-  </button>
-</div>
+        <button
+          type="button"
+          class="lang-btn"
+          data-lang="kz"
+          aria-pressed="false"
+        >
+          KZ
+        </button>
 
-      <!-- CTA -->
+        <button
+          type="button"
+          class="lang-btn"
+          data-lang="en"
+          aria-pressed="false"
+        >
+          EN
+        </button>
+
+      </div>
 
       <a
         class="btn btn--solid desktop-cta"
@@ -117,9 +119,6 @@
       >
         Оставить заявку
       </a>
-
-
-      <!-- MOBILE MENU -->
 
       <button
         class="nav-toggle"
@@ -144,15 +143,14 @@
 <main id="top">
 
 
- <!-- =====================================================
+<!-- =====================================================
      HERO
-====================================================== -->
-    
+===================================================== -->
+
 <section class="hero-section">
 
   <div class="wrap hero">
 
-    <!-- LEFT CONTENT -->
     <div class="hero-content">
 
       <div class="section-tag">
@@ -191,626 +189,656 @@
 
     </div>
 
-  <!-- =====================================================
-       SERVICES
-  ====================================================== -->
 
-  <section id="services">
+    <!-- =================================================
+         CARGO TRACKER
+    ================================================== -->
 
-    <div class="wrap">
+    <div class="panel tracker">
 
-      <div class="section-head">
+      <div class="tracker-head">
 
-        <div
-          class="section-tag"
-          data-i18n="servicesTag"
+        <span>
+          JWS CARGO TRACKING
+        </span>
+
+        <span
+          class="status"
+          data-i18n="onWay"
         >
-          Услуги
-        </div>
-
-
-        <h2 data-i18n="servicesTitle">
-          Что мы делаем с грузом
-        </h2>
-
-
-        <p data-i18n="servicesText">
-          Можно заказать любую услугу отдельно или полным циклом — от границы до выдачи получателю.
-        </p>
+          В ПУТИ
+        </span>
 
       </div>
 
 
-      <div class="service-grid">
+      <div class="cargo-route">
 
 
-        <article class="panel service-panel">
+        <!-- CHINA -->
 
-          <span class="code">
-            01 / CUSTOMS
-          </span>
+        <div class="route-point">
 
-          <h3 data-i18n="service1Title">
-            Таможенное декларирование
-          </h3>
+          <div class="route-icon">
 
-          <p data-i18n="service1Text">
-            Подготовка и подача декларации, расчёт пошлины и НДС, взаимодействие с таможенным постом.
-          </p>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
 
-        </article>
+              <path d="M4 5h16v14H4z"></path>
 
+              <path d="M8 5v14"></path>
 
-        <article class="panel service-panel">
+              <path d="M16 5v14"></path>
 
-          <span class="code">
-            02 / STORAGE
-          </span>
+              <path d="M4 10h16"></path>
 
-          <h3 data-i18n="service2Title">
-            Хранение на складе временного хранения
-          </h3>
+              <path d="M4 15h16"></path>
 
-          <p data-i18n="service2Text">
-            Приём, размещение и выдача груза на СВХ на весь период оформления — по весу или по объёму.
-          </p>
+            </svg>
 
-        </article>
+          </div>
 
-
-        <article class="panel service-panel">
-
-          <span class="code">
-            03 / BROKER
-          </span>
-
-          <h3 data-i18n="service3Title">
-            Брокерское сопровождение
-          </h3>
-
-          <p data-i18n="service3Text">
-            Ведение сделки от подачи документов до выпуска груза, включая переписку с таможней.
-          </p>
-
-        </article>
-
-
-        <article class="panel service-panel">
-
-          <span class="code">
-            04 / TN VED
-          </span>
-
-          <h3 data-i18n="service4Title">
-            Определение кода ТН ВЭД и ставок
-          </h3>
-
-          <p data-i18n="service4Text">
-            Подбор верного кода товара и действующих ставок пошлины и НДС до подачи декларации.
-          </p>
-
-        </article>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       PROCESS
-  ====================================================== -->
-
-  <section id="process">
-
-    <div class="wrap">
-
-      <div class="section-head">
-
-        <div
-          class="section-tag"
-          data-i18n="processTag"
-        >
-          Процесс
-        </div>
-
-
-        <h2 data-i18n="processTitle">
-          Путь груза от заявки до выдачи
-        </h2>
-
-
-        <p data-i18n="processText">
-          Четыре этапа оформления груза — от первого обращения до получения товара.
-        </p>
-
-      </div>
-
-
-      <div class="journey">
-
-        <div class="journey-line">
-
-
-          <article class="waypoint">
-
-            <span class="num">
-              01
-            </span>
-
-            <h3 data-i18n="step1">
-              Заявка
-            </h3>
-
-            <p data-i18n="step1Text">
-              Присылаете документы на груз, мы уточняем код ТН ВЭД и предварительную стоимость.
-            </p>
-
-          </article>
-
-
-          <article class="waypoint">
-
-            <span class="num">
-              02
-            </span>
-
-            <h3 data-i18n="step2">
-              Приём на СВХ
-            </h3>
-
-            <p data-i18n="step2Text">
-              Груз поступает на склад временного хранения, фиксируем вес и объём.
-            </p>
-
-          </article>
-
-
-          <article class="waypoint">
-
-            <span class="num">
-              03
-            </span>
-
-            <h3 data-i18n="step3">
-              Декларирование
-            </h3>
-
-            <p data-i18n="step3Text">
-              Подаём декларацию, рассчитываем и оплачиваем пошлину и НДС.
-            </p>
-
-          </article>
-
-
-          <article class="waypoint">
-
-            <span class="num">
-              04
-            </span>
-
-            <h3 data-i18n="step4">
-              Выпуск груза
-            </h3>
-
-            <p data-i18n="step4Text">
-              После выпуска таможней выдаём груз или организуем доставку получателю.
-            </p>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- =====================================================
-       CALCULATOR
-  ====================================================== -->
-
-  <section id="calculator">
-
-    <div class="wrap">
-
-      <div class="section-head">
-
-        <div
-          class="section-tag"
-          data-i18n="calculatorTag"
-        >
-          Калькулятор
-        </div>
-
-
-        <h2 data-i18n="calculatorTitle">
-          Рассчитайте стоимость заранее
-        </h2>
-
-
-        <p data-i18n="calculatorText">
-          Пошлина НДС хранение на СВХ и услуги брокера — один расчёт по одной поставке.
-        </p>
-
-      </div>
-
-
-      <div class="panel console">
-
-        <div class="console-body">
-
-
-          <!-- CALCULATOR FORM -->
-
-          <form
-            class="console-form"
-            id="calcForm"
+          <div
+            class="route-name"
+            data-i18n="china"
           >
+            Китай
+          </div>
+
+          <div class="route-sub">
+            CN
+          </div>
+
+        </div>
 
 
-            <fieldset>
+        <!-- CONNECTION -->
 
-              <legend data-i18n="product">
-                ТОВАР
-              </legend>
+        <div class="route-connection">
+
+          <div class="truck-indicator">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+
+              <path d="M3 6h11v10H3z"></path>
+
+              <path d="M14 10h4l3 3v3h-7z"></path>
+
+              <circle cx="7" cy="18" r="2"></circle>
+
+              <circle cx="18" cy="18" r="2"></circle>
+
+              <path d="M9 18h7"></path>
+
+            </svg>
+
+          </div>
+
+        </div>
 
 
-              <div class="field">
+        <!-- BORDER -->
 
-                <div>
+        <div class="route-point">
 
-                  <label
-                    for="value"
-                    data-i18n="productCost"
-                  >
-                    Стоимость товара
-                  </label>
+          <div class="route-icon">
 
-                </div>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+
+              <path d="M3 5h18"></path>
+
+              <path d="M5 5v14"></path>
+
+              <path d="M19 5v14"></path>
+
+              <path d="M3 19h18"></path>
+
+              <path d="M8 9h8"></path>
+
+              <path d="M8 13h8"></path>
+
+              <path d="M8 17h8"></path>
+
+            </svg>
+
+          </div>
+
+          <div
+            class="route-name"
+            data-i18n="border"
+          >
+            Граница
+          </div>
+
+          <div class="route-sub">
+            ZKT
+          </div>
+
+        </div>
 
 
-                <input
-                  type="number"
-                  id="value"
-                  value="5000"
-                  min="0"
-                  step="0.01"
+        <!-- CONNECTION -->
+
+        <div class="route-connection transit"></div>
+
+
+        <!-- WAREHOUSE -->
+
+        <div class="route-point end">
+
+          <div class="route-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+
+              <path d="M3 10l9-6 9 6"></path>
+
+              <path d="M5 10v9h14v-9"></path>
+
+              <path d="M9 19v-6h6v6"></path>
+
+              <path d="M7 10h10"></path>
+
+            </svg>
+
+          </div>
+
+          <div
+            class="route-name"
+            data-i18n="warehouseShort"
+          >
+            СВХ
+          </div>
+
+          <div class="route-sub">
+            KZ
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <dl class="tracker-meta">
+
+        <div>
+
+          <dt data-i18n="weight">
+            Вес
+          </dt>
+
+          <dd>
+            12 500 кг
+          </dd>
+
+        </div>
+
+        <div>
+
+          <dt data-i18n="status">
+            Статус
+          </dt>
+
+          <dd data-i18n="inTransit">
+            В пути
+          </dd>
+
+        </div>
+
+        <div>
+
+          <dt>
+            ETA
+          </dt>
+
+          <dd>
+            4 <span data-i18n="days">дня</span>
+          </dd>
+
+        </div>
+
+      </dl>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     SERVICES
+===================================================== -->
+
+<section id="services">
+
+  <div class="wrap">
+
+    <div class="section-head">
+
+      <div
+        class="section-tag"
+        data-i18n="servicesTag"
+      >
+        Услуги
+      </div>
+
+      <h2 data-i18n="servicesTitle">
+        Что мы делаем с грузом
+      </h2>
+
+      <p data-i18n="servicesText">
+        Можно заказать любую услугу отдельно или полным циклом —
+        от границы до выдачи получателю.
+      </p>
+
+    </div>
+
+
+    <div class="service-grid">
+
+
+      <article class="panel service-panel">
+
+        <span class="code">
+          01 / CUSTOMS
+        </span>
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M4 4h16v16H4z"></path>
+            <path d="M8 8h8"></path>
+            <path d="M8 12h8"></path>
+            <path d="M8 16h5"></path>
+          </svg>
+
+        </div>
+
+        <h3 data-i18n="service1Title">
+          Таможенное декларирование
+        </h3>
+
+        <p data-i18n="service1Text">
+          Подготовка и подача декларации, расчёт пошлины и НДС,
+          взаимодействие с таможенным постом.
+        </p>
+
+      </article>
+
+
+      <article class="panel service-panel">
+
+        <span class="code">
+          02 / STORAGE
+        </span>
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M3 10l9-6 9 6"></path>
+            <path d="M5 10v10h14V10"></path>
+            <path d="M8 20v-6h8v6"></path>
+          </svg>
+
+        </div>
+
+        <h3 data-i18n="service2Title">
+          Хранение на складе временного хранения
+        </h3>
+
+        <p data-i18n="service2Text">
+          Приём, размещение и выдача груза на СВХ на весь период
+          оформления — по весу или по объёму.
+        </p>
+
+      </article>
+
+
+      <article class="panel service-panel">
+
+        <span class="code">
+          03 / BROKER
+        </span>
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="12" cy="8" r="3"></circle>
+            <path d="M5 20c1-4 3-6 7-6s6 2 7 6"></path>
+          </svg>
+
+        </div>
+
+        <h3 data-i18n="service3Title">
+          Брокерское сопровождение
+        </h3>
+
+        <p data-i18n="service3Text">
+          Ведение сделки от подачи документов до выпуска груза,
+          включая переписку с таможней.
+        </p>
+
+      </article>
+
+
+      <article class="panel service-panel">
+
+        <span class="code">
+          04 / TN VED
+        </span>
+
+        <div class="service-icon">
+
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="6"></circle>
+            <path d="M16 16l5 5"></path>
+            <path d="M8 11h6"></path>
+          </svg>
+
+        </div>
+
+        <h3 data-i18n="service4Title">
+          Определение кода ТН ВЭД и ставок
+        </h3>
+
+        <p data-i18n="service4Text">
+          Подбор верного кода товара и действующих ставок
+          пошлины и НДС до подачи декларации.
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     PROCESS
+===================================================== -->
+
+<section id="process">
+
+  <div class="wrap">
+
+    <div class="section-head">
+
+      <div
+        class="section-tag"
+        data-i18n="processTag"
+      >
+        Процесс
+      </div>
+
+      <h2 data-i18n="processTitle">
+        Путь груза от заявки до выдачи
+      </h2>
+
+      <p data-i18n="processText">
+        Четыре этапа оформления груза — от первого обращения
+        до получения товара.
+      </p>
+
+    </div>
+
+
+    <div class="journey">
+
+      <div class="journey-line">
+
+
+        <article class="waypoint">
+
+          <span class="num">
+            01
+          </span>
+
+          <div class="waypoint-icon">
+            01
+          </div>
+
+          <h3 data-i18n="step1">
+            Заявка
+          </h3>
+
+          <p data-i18n="step1Text">
+            Присылаете документы на груз, мы уточняем код ТН ВЭД
+            и предварительную стоимость.
+          </p>
+
+        </article>
+
+
+        <article class="waypoint">
+
+          <span class="num">
+            02
+          </span>
+
+          <div class="waypoint-icon">
+            02
+          </div>
+
+          <h3 data-i18n="step2">
+            Приём на СВХ
+          </h3>
+
+          <p data-i18n="step2Text">
+            Груз поступает на склад временного хранения,
+            фиксируем вес и объём.
+          </p>
+
+        </article>
+
+
+        <article class="waypoint">
+
+          <span class="num">
+            03
+          </span>
+
+          <div class="waypoint-icon">
+            03
+          </div>
+
+          <h3 data-i18n="step3">
+            Декларирование
+          </h3>
+
+          <p data-i18n="step3Text">
+            Подаём декларацию, рассчитываем пошлину и НДС.
+          </p>
+
+        </article>
+
+
+        <article class="waypoint">
+
+          <span class="num">
+            04
+          </span>
+
+          <div class="waypoint-icon">
+            04
+          </div>
+
+          <h3 data-i18n="step4">
+            Выпуск груза
+          </h3>
+
+          <p data-i18n="step4Text">
+            После выпуска таможней выдаём груз или организуем
+            доставку получателю.
+          </p>
+
+        </article>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CALCULATOR
+===================================================== -->
+
+<section id="calculator">
+
+  <div class="wrap">
+
+    <div class="section-head">
+
+      <div
+        class="section-tag"
+        data-i18n="calculatorTag"
+      >
+        Калькулятор
+      </div>
+
+      <h2 data-i18n="calculatorTitle">
+        Рассчитайте стоимость заранее
+      </h2>
+
+      <p data-i18n="calculatorText">
+        Пошлина, НДС, хранение на СВХ и услуги брокера —
+        один расчёт по одной поставке.
+      </p>
+
+    </div>
+
+
+    <div class="panel console">
+
+      <div class="console-body">
+
+
+        <form
+          class="console-form"
+          id="calcForm"
+        >
+
+
+          <fieldset>
+
+            <legend data-i18n="product">
+              ТОВАР
+            </legend>
+
+
+            <div class="field">
+
+              <div>
+
+                <label
+                  for="value"
+                  data-i18n="productCost"
                 >
-
-              </div>
-
-
-              <div class="field">
-
-                <div>
-
-                  <label
-                    for="currency"
-                    data-i18n="currency"
-                  >
-                    Валюта
-                  </label>
-
-                </div>
-
-
-                <select id="currency">
-
-                  <option value="USD">
-                    USD
-                  </option>
-
-                  <option value="CNY">
-                    CNY
-                  </option>
-
-                  <option value="KZT">
-                    KZT
-                  </option>
-
-                </select>
-
-              </div>
-
-
-              <div class="field">
-
-                <div>
-
-                  <label
-                    for="rate"
-                    data-i18n="exchangeRate"
-                  >
-                    Курс к тенге
-                  </label>
-
-
-                  <span
-                    class="hint"
-                    data-i18n="rateHint"
-                  >
-                    1 единица валюты = ₸
-                  </span>
-
-                </div>
-
-
-                <input
-                  type="number"
-                  id="rate"
-                  value="540"
-                  min="0"
-                  step="0.01"
-                >
-
-              </div>
-
-
-              <div class="row-two">
-
-
-                <div class="field">
-
-                  <div>
-
-                    <label
-                      for="duty"
-                      data-i18n="dutyRate"
-                    >
-                      Пошлина, %
-                    </label>
-
-                  </div>
-
-
-                  <input
-                    type="number"
-                    id="duty"
-                    value="10"
-                    min="0"
-                    step="0.1"
-                  >
-
-                </div>
-
-
-                <div class="field">
-
-                  <div>
-
-                    <label
-                      for="vat"
-                      data-i18n="vatRate"
-                    >
-                      НДС, %
-                    </label>
-
-                  </div>
-
-
-                  <input
-                    type="number"
-                    id="vat"
-                    value="12"
-                    min="0"
-                    step="0.1"
-                  >
-
-                </div>
-
-
-              </div>
-
-            </fieldset>
-
-
-            <!-- STORAGE -->
-
-            <fieldset>
-
-              <legend data-i18n="storage">
-                ХРАНЕНИЕ НА СВХ
-              </legend>
-
-
-              <div class="row-two">
-
-
-                <div class="field">
-
-                  <div>
-
-                    <label
-                      for="weight"
-                      data-i18n="weightKg"
-                    >
-                      Вес, кг
-                    </label>
-
-                  </div>
-
-
-                  <input
-                    type="number"
-                    id="weight"
-                    value="120"
-                    min="0"
-                    step="0.1"
-                  >
-
-                </div>
-
-
-                <div class="field">
-
-                  <div>
-
-                    <label
-                      for="volume"
-                      data-i18n="volumeM3"
-                    >
-                      Объём, м³
-                    </label>
-
-                  </div>
-
-
-                  <input
-                    type="number"
-                    id="volume"
-                    value="1.4"
-                    min="0"
-                    step="0.01"
-                  >
-
-                </div>
-
-              </div>
-
-
-              <div class="storage-basis">
-
-
-                <label>
-
-                  <input
-                    type="radio"
-                    name="basis"
-                    value="weight"
-                    checked
-                  >
-
-                  <span data-i18n="byWeight">
-                    По весу
-                  </span>
-
+                  Стоимость товара
                 </label>
 
-
-                <label>
-
-                  <input
-                    type="radio"
-                    name="basis"
-                    value="volume"
-                  >
-
-                  <span data-i18n="byVolume">
-                    По объёму
-                  </span>
-
-                </label>
-
-
               </div>
 
-
-              <div class="row-two">
-
-
-                <div class="field">
-
-                  <div>
-
-                    <label
-                      for="storageRate"
-                      data-i18n="storageRate"
-                    >
-                      Ставка хранения
-                    </label>
-
-                  </div>
-
-
-                  <input
-                    type="number"
-                    id="storageRate"
-                    value="80"
-                    min="0"
-                    step="1"
-                  >
-
-                </div>
-
-
-                <div class="field">
-
-                  <div>
-
-                    <label
-                      for="days"
-                      data-i18n="storageDays"
-                    >
-                      Дней хранения
-                    </label>
-
-                  </div>
-
-
-                  <input
-                    type="number"
-                    id="days"
-                    value="6"
-                    min="0"
-                    step="1"
-                  >
-
-                </div>
-
-
-              </div>
-
-            </fieldset>
-
-
-            <!-- BROKER -->
-
-            <fieldset>
-
-              <legend data-i18n="broker">
-                БРОКЕРСКИЕ УСЛУГИ
-              </legend>
-
-
-              <div
-                class="broker-toggle"
-                id="brokerToggle"
+              <input
+                type="number"
+                id="value"
+                value="5000"
+                min="0"
+                step="0.01"
               >
 
-                <span data-i18n="brokerMode">
-                  Режим расчёта
+            </div>
+
+
+            <div class="field">
+
+              <div>
+
+                <label
+                  for="currency"
+                  data-i18n="currency"
+                >
+                  Валюта
+                </label>
+
+              </div>
+
+              <select id="currency">
+
+                <option value="USD">
+                  USD
+                </option>
+
+                <option value="CNY">
+                  CNY
+                </option>
+
+                <option value="KZT">
+                  KZT
+                </option>
+
+              </select>
+
+            </div>
+
+
+            <div class="field">
+
+              <div>
+
+                <label
+                  for="rate"
+                  data-i18n="exchangeRate"
+                >
+                  Курс к тенге
+                </label>
+
+                <span
+                  class="hint"
+                  data-i18n="rateHint"
+                >
+                  1 единица валюты = ₸
                 </span>
 
+              </div>
 
-                <div class="toggle">
+              <input
+                type="number"
+                id="rate"
+                value="540"
+                min="0"
+                step="0.01"
+              >
+
+            </div>
 
 
-                  <button
-                    type="button"
-                    data-mode="fixed"
-                    aria-pressed="true"
-                    data-i18n="fixedAmount"
+            <div class="row-two">
+
+              <div class="field">
+
+                <div>
+
+                  <label
+                    for="duty"
+                    data-i18n="dutyRate"
                   >
-                    Фиксированная сумма
-                  </button>
-
-
-                  <button
-                    type="button"
-                    data-mode="percent"
-                    aria-pressed="false"
-                    data-i18n="percentage"
-                  >
-                    Процент
-                  </button>
-
+                    Пошлина, %
+                  </label>
 
                 </div>
+
+                <input
+                  type="number"
+                  id="duty"
+                  value="10"
+                  min="0"
+                  step="0.1"
+                >
 
               </div>
 
@@ -820,307 +848,694 @@
                 <div>
 
                   <label
-                    for="brokerValue"
-                    id="brokerValueLabel"
-                    data-i18n="brokerAmount"
+                    for="vat"
+                    data-i18n="vatRate"
                   >
-                    Сумма услуг брокера
+                    НДС, %
                   </label>
 
                 </div>
 
+                <input
+                  type="number"
+                  id="vat"
+                  value="12"
+                  min="0"
+                  step="0.1"
+                >
+
+              </div>
+
+            </div>
+
+          </fieldset>
+
+
+          <fieldset>
+
+            <legend data-i18n="storage">
+              ХРАНЕНИЕ НА СВХ
+            </legend>
+
+
+            <div class="row-two">
+
+              <div class="field">
+
+                <div>
+
+                  <label
+                    for="weight"
+                    data-i18n="weightKg"
+                  >
+                    Вес, кг
+                  </label>
+
+                </div>
 
                 <input
                   type="number"
-                  id="brokerValue"
-                  value="25000"
+                  id="weight"
+                  value="120"
+                  min="0"
+                  step="0.1"
+                >
+
+              </div>
+
+
+              <div class="field">
+
+                <div>
+
+                  <label
+                    for="volume"
+                    data-i18n="volumeM3"
+                  >
+                    Объём, м³
+                  </label>
+
+                </div>
+
+                <input
+                  type="number"
+                  id="volume"
+                  value="1.4"
+                  min="0"
+                  step="0.01"
+                >
+
+              </div>
+
+            </div>
+
+
+            <div class="storage-basis">
+
+              <label>
+
+                <input
+                  type="radio"
+                  name="basis"
+                  value="weight"
+                  checked
+                >
+
+                <span data-i18n="byWeight">
+                  По весу
+                </span>
+
+              </label>
+
+
+              <label>
+
+                <input
+                  type="radio"
+                  name="basis"
+                  value="volume"
+                >
+
+                <span data-i18n="byVolume">
+                  По объёму
+                </span>
+
+              </label>
+
+            </div>
+
+
+            <div class="row-two">
+
+              <div class="field">
+
+                <div>
+
+                  <label
+                    for="storageRate"
+                    data-i18n="storageRate"
+                  >
+                    Ставка хранения
+                  </label>
+
+                </div>
+
+                <input
+                  type="number"
+                  id="storageRate"
+                  value="80"
                   min="0"
                   step="1"
                 >
 
               </div>
 
-            </fieldset>
 
+              <div class="field">
 
-          </form>
+                <div>
 
+                  <label
+                    for="days"
+                    data-i18n="storageDays"
+                  >
+                    Дней хранения
+                  </label>
 
-          <!-- RESULT -->
+                </div>
 
-          <aside class="console-readout">
-
-
-            <h3 data-i18n="calculation">
-              РАСЧЁТ
-            </h3>
-
-
-            <dl class="receipt__lines">
-
-
-              <div class="line">
-
-                <dt data-i18n="customsValue">
-                  Таможенная стоимость
-                </dt>
-
-                <span class="leader"></span>
-
-                <dd id="outValue">
-                  0 ₸
-                </dd>
+                <input
+                  type="number"
+                  id="days"
+                  value="6"
+                  min="0"
+                  step="1"
+                >
 
               </div>
 
+            </div>
 
-              <div class="line">
-
-                <dt data-i18n="duty">
-                  Пошлина
-                </dt>
-
-                <span class="leader"></span>
-
-                <dd id="outDuty">
-                  0 ₸
-                </dd>
-
-              </div>
+          </fieldset>
 
 
-              <div class="line">
+          <fieldset>
 
-                <dt data-i18n="vat">
-                  НДС
-                </dt>
-
-                <span class="leader"></span>
-
-                <dd id="outVat">
-                  0 ₸
-                </dd>
-
-              </div>
+            <legend data-i18n="broker">
+              БРОКЕРСКИЕ УСЛУГИ
+            </legend>
 
 
-              <div class="line">
+            <div class="broker-toggle">
 
-                <dt data-i18n="storageCost">
-                  Хранение на СВХ
-                </dt>
+              <span data-i18n="brokerMode">
+                Режим расчёта
+              </span>
 
-                <span class="leader"></span>
 
-                <dd id="outStorage">
-                  0 ₸
-                </dd>
+              <div class="toggle">
+
+                <button
+                  type="button"
+                  data-mode="fixed"
+                  aria-pressed="true"
+                  data-i18n="fixedAmount"
+                >
+                  Фиксированная сумма
+                </button>
+
+                <button
+                  type="button"
+                  data-mode="percent"
+                  aria-pressed="false"
+                  data-i18n="percentage"
+                >
+                  Процент
+                </button>
 
               </div>
 
-
-              <div class="line">
-
-                <dt data-i18n="brokerCost">
-                  Брокерские услуги
-                </dt>
-
-                <span class="leader"></span>
-
-                <dd id="outBroker">
-                  0 ₸
-                </dd>
-
-              </div>
+            </div>
 
 
-              <div class="line line--total">
+            <div class="field">
 
-                <dt data-i18n="total">
-                  Итого к оплате
-                </dt>
+              <div>
 
-                <span class="leader"></span>
-
-                <dd id="outTotal">
-                  0 ₸
-                </dd>
+                <label
+                  for="brokerValue"
+                  id="brokerValueLabel"
+                  data-i18n="brokerAmount"
+                >
+                  Сумма услуг брокера
+                </label>
 
               </div>
 
-            </dl>
+              <input
+                type="number"
+                id="brokerValue"
+                value="25000"
+                min="0"
+                step="1"
+              >
+
+            </div>
+
+          </fieldset>
+
+        </form>
 
 
-            <p class="note" data-i18n="calculatorNote">
-              Расчёт является ориентировочным. Фактические ставки зависят от кода ТН ВЭД, условий поставки и действую[...]
-            </p>
+        <aside class="console-readout">
+
+          <h3 data-i18n="calculation">
+            РАСЧЁТ
+          </h3>
 
 
-          </aside>
+          <dl class="receipt__lines">
+
+            <div class="line">
+
+              <dt data-i18n="customsValue">
+                Таможенная стоимость
+              </dt>
+
+              <span class="leader"></span>
+
+              <dd id="outValue">
+                0 ₸
+              </dd>
+
+            </div>
 
 
-        </div>
+            <div class="line">
+
+              <dt data-i18n="duty">
+                Пошлина
+              </dt>
+
+              <span class="leader"></span>
+
+              <dd id="outDuty">
+                0 ₸
+              </dd>
+
+            </div>
+
+
+            <div class="line">
+
+              <dt data-i18n="vat">
+                НДС
+              </dt>
+
+              <span class="leader"></span>
+
+              <dd id="outVat">
+                0 ₸
+              </dd>
+
+            </div>
+
+
+            <div class="line">
+
+              <dt data-i18n="storageCost">
+                Хранение на СВХ
+              </dt>
+
+              <span class="leader"></span>
+
+              <dd id="outStorage">
+                0 ₸
+              </dd>
+
+            </div>
+
+
+            <div class="line">
+
+              <dt data-i18n="brokerCost">
+                Брокерские услуги
+              </dt>
+
+              <span class="leader"></span>
+
+              <dd id="outBroker">
+                0 ₸
+              </dd>
+
+            </div>
+
+
+            <div class="line line--total">
+
+              <dt data-i18n="total">
+                Итого к оплате
+              </dt>
+
+              <span class="leader"></span>
+
+              <dd id="outTotal">
+                0 ₸
+              </dd>
+
+            </div>
+
+          </dl>
+
+
+          <p
+            class="note"
+            data-i18n="calculatorNote"
+          >
+            Расчёт является ориентировочным. Фактические ставки
+            зависят от кода ТН ВЭД, условий поставки и действующего
+            законодательства.
+          </p>
+
+        </aside>
 
       </div>
 
     </div>
 
-  </section>
+  </div>
+
+</section>
 
 
-  <!-- =====================================================
-       ABOUT
-  ====================================================== -->
+<!-- =====================================================
+     ABOUT
+===================================================== -->
 
-  <section id="about">
+<section id="about">
 
-    <div class="wrap">
+  <div class="wrap">
 
-      <div class="section-head">
+    <div class="section-head">
 
-        <div class="section-tag" data-i18n="aboutTag">
-          О компании
+      <div
+        class="section-tag"
+        data-i18n="aboutTag"
+      >
+        О компании
+      </div>
+
+      <h2 data-i18n="aboutTitle">
+        JWS Group
+      </h2>
+
+      <p data-i18n="aboutText">
+        Сопровождаем импортные поставки в Казахстан:
+        таможенное оформление, хранение на СВХ и брокерское сопровождение.
+      </p>
+
+    </div>
+
+
+    <div class="about-grid">
+
+
+      <article class="panel about-card">
+
+        <span class="about-number">
+          01
+        </span>
+
+        <h3 data-i18n="about1">
+          Документы
+        </h3>
+
+        <p>
+          <span data-i18n="about1Text">
+            Подготовка комплекта документов для таможенной
+            декларации и сопровождение проверки.
+          </span>
+        </p>
+
+      </article>
+
+
+      <article class="panel about-card">
+
+        <span class="about-number">
+          02
+        </span>
+
+        <h3 data-i18n="about2">
+          СВХ
+        </h3>
+
+        <p>
+          <span data-i18n="about2Text">
+            Приём, хранение и выдача груза на складе
+            временного хранения.
+          </span>
+        </p>
+
+      </article>
+
+
+      <article class="panel about-card">
+
+        <span class="about-number">
+          03
+        </span>
+
+        <h3 data-i18n="about3">
+          Таможня
+        </h3>
+
+        <p>
+          <span data-i18n="about3Text">
+            Взаимодействие с таможенными органами
+            и оформление выпуска.
+          </span>
+        </p>
+
+      </article>
+
+
+      <article class="panel about-card">
+
+        <span class="about-number">
+          04
+        </span>
+
+        <h3 data-i18n="about4">
+          Выдача груза
+        </h3>
+
+        <p>
+          <span data-i18n="about4Text">
+            Передача груза получателю или организация доставки.
+          </span>
+        </p>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- =====================================================
+     CONTACT
+===================================================== -->
+
+<section id="contact">
+
+  <div class="wrap contact-wrap">
+
+    <div class="panel contact-panel">
+
+      <div class="section-tag" data-i18n="contactTag">
+        Контакты
+      </div>
+
+      <h2 data-i18n="contactTitle">
+        Оставить заявку
+      </h2>
+
+      <p data-i18n="contactText">
+        Расскажите о грузе — мы свяжемся с вами
+        и уточним детали оформления.
+      </p>
+
+
+      <form
+        id="contactForm"
+        class="contact-form"
+        action="ЗАМЕНИТЕ_НА_СВОЙ_ID"
+        method="POST"
+      >
+
+        <div class="cf-field">
+
+          <label
+            for="name"
+            data-i18n="name"
+          >
+            Имя
+          </label>
+
+          <input
+            id="name"
+            name="name"
+            type="text"
+            autocomplete="name"
+            required
+          >
+
         </div>
 
 
-        <h2 data-i18n="aboutTitle">
-          JWS Group
-        </h2>
+        <div class="cf-field">
+
+          <label
+            for="contactValue"
+            data-i18n="contact"
+          >
+            Телефон или email
+          </label>
+
+          <input
+            id="contactValue"
+            name="contact"
+            type="text"
+            autocomplete="email"
+            required
+          >
+
+        </div>
 
 
-        <p data-i18n="aboutText">
-          Сопровождаем импортные поставки в Казахстан: таможенное оформление, хранение на СВХ и брокерское сопровождение
+        <div class="cf-field">
+
+          <label
+            for="message"
+            data-i18n="message"
+          >
+            Что нужно оформить
+          </label>
+
+          <textarea
+            id="message"
+            name="message"
+            data-i18n-placeholder="cargoPlaceholder"
+            placeholder="Вес, объём, страна отправления, вид товара"
+          ></textarea>
+
+        </div>
+
+
+        <div
+          id="formStatus"
+          class="form-status"
+          aria-live="polite"
+        ></div>
+
+
+        <button
+          type="submit"
+          class="btn btn--solid"
+          data-i18n="send"
+        >
+          Отправить заявку
+        </button>
+
+
+        <p
+          class="form-note"
+          data-i18n="formNote"
+        >
+          После подключения Formspree заявки будут поступать
+          на вашу почту.
+        </p>
+
+      </form>
+
+    </div>
+
+
+    <aside class="panel contact-info">
+
+      <div class="contact-info-label">
+        JWS GROUP
+      </div>
+
+      <h3 data-i18n="contactUs">
+        Связаться с нами
+      </h3>
+
+
+      <div class="contact-detail">
+
+        <span data-i18n="phone">
+          Телефон
+        </span>
+
+        <a href="tel:+77270000000">
+          +7 (727) 000-00-00
+        </a>
+
+      </div>
+
+
+      <div class="contact-detail">
+
+        <span data-i18n="warehouse">
+          Адрес СВХ
+        </span>
+
+        <p>
+          г. Алма-Ата, индустриальная зона
         </p>
 
       </div>
 
 
-      <div class="grid about-grid">
+      <div class="contact-detail">
 
-        <div class="panel">
+        <span data-i18n="workingHours">
+          Режим работы
+        </span>
 
-          <h4 data-i18n="about1">Документы</h4>
-
-          <p>
-            Подготовка комплекта документов для таможенной декларации и сопровождение проверки.
-          </p>
-
-        </div>
-
-
-        <div class="panel">
-
-          <h4 data-i18n="about2">СВХ</h4>
-
-          <p>
-            Приём, хранение и выдача груза на складе временного хранения.
-          </p>
-
-        </div>
-
-
-        <div class="panel">
-
-          <h4 data-i18n="about3">Таможня</h4>
-
-          <p>
-            Взаимодействие с таможенными органами и оформление выпуска.
-          </p>
-
-        </div>
-
-
-        <div class="panel">
-
-          <h4 data-i18n="about4">Выдача груза</h4>
-
-          <p>
-            Передача груза получателю или организация доставки.
-          </p>
-
-        </div>
+        <p>
+          Пн–Пт · 9:00–18:00
+        </p>
 
       </div>
 
-    </div>
+    </aside>
 
-  </section>
+  </div>
 
+</section>
 
-  <!-- =====================================================
-       CONTACT
-  ====================================================== -->
-
-  <section id="contact">
-
-    <div class="wrap contact-wrap">
-
-      <div class="panel contact-panel">
-
-        <h2 data-i18n="contactTitle">Оставить заявку</h2>
-
-        <p data-i18n="contactText">Расскажите о грузе — мы свяжемся с вами и уточним детали оформления.</p>
-
-        <form id="contactForm" class="contact-form" action="ЗАМЕНИТЕ_НА_СВОЙ_ID" method="POST">
-
-          <div class="cf-field">
-            <label for="name" data-i18n="name">Имя</label>
-            <input id="name" name="name" required>
-          </div>
-
-          <div class="cf-field">
-            <label for="contact" data-i18n="contact">Телефон или email</label>
-            <input id="contact" name="contact" required>
-          </div>
-
-          <div class="cf-field">
-            <label for="message" data-i18n="message">Что нужно оформить</label>
-            <textarea id="message" name="message" placeholder="" data-i18n-placeholder="cargoPlaceholder"></textarea>
-          </div>
-
-          <div id="formStatus" class="form-status"></div>
-
-          <button type="submit" class="btn btn--solid" data-i18n="send">Отправить заявку</button>
-
-          <p class="form-note" data-i18n="formNote">После подключения Formspree заявки будут поступать на вашу почту.</p>
-
-        </form>
-
-      </div>
-
-      <aside class="panel contact-info">
-
-        <h3 data-i18n="contactUs">Связаться с нами</h3>
-
-        <p><strong data-i18n="phone">Телефон</strong><br>+7 (727) 000-00-00</p>
-
-        <p><strong data-i18n="warehouse">Адрес СВХ</strong><br>г. Алма-Ата, индустриальная зона</p>
-
-        <p><strong data-i18n="workingHours">Режим работы</strong><br>Пн–Пт 9:00–18:00</p>
-
-      </aside>
-
-    </div>
-
-  </section>
-
-
-  <footer class="site-footer">
-
-    <div class="wrap footer-wrap">
-
-      <p class="footer-text" data-i18n="footerText">Таможенное оформление · СВХ · Брокерское сопровождение</p>
-
-      <p class="copyright">© <span id="year"></span> JWS Group</p>
-
-    </div>
-
-  </footer>
 
 </main>
-  
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="site-footer">
+
+  <div class="wrap footer-row">
+
+    <a
+      class="footer-logo"
+      href="#top"
+    >
+      <span class="live-dot"></span>
+      JWS GROUP
+    </a>
+
+    <p
+      class="footer-text"
+      data-i18n="footerText"
+    >
+      Таможенное оформление · СВХ · Брокерское сопровождение
+    </p>
+
+    <p class="copyright">
+      © <span id="year"></span> JWS Group
+    </p>
+
+  </div>
+
+</footer>
+
+
 <script src="script.js"></script>
 
 </body>
-
 </html>
