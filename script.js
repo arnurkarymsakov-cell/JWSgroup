@@ -271,6 +271,18 @@ document.addEventListener("DOMContentLoaded", () => {
       formSuccess:
         "Спасибо! Заявка отправлена.",
 
+      trackerPlaceholder:
+        "Номер груза, напр. A20260908",
+ 
+      trackerSearchBtn:
+        "Найти",
+ 
+      trackerSearching:
+        "Ищем...",
+ 
+      trackerNotFound:
+        "Груз с таким номером не найден. Проверьте номер или свяжитесь с нами.",
+       
       footerText:
         "Таможенное оформление · СВХ · Брокерское сопровождение"
     },
@@ -558,7 +570,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       formSuccess:
         "Рақмет! Өтінім жіберілді.",
-
+       
+      trackerPlaceholder:
+        "Жүк нөмірі, мыс. A20260908",
+ 
+      trackerSearchBtn:
+        "Іздеу",
+ 
+      trackerSearching:
+        "Іздеп жатырмыз...",
+ 
+      trackerNotFound:
+        "Мұндай нөмірлі жүк табылмады. Нөмірді тексеріңіз немесе бізбен байланысыңыз.",
+       
       footerText:
         "Кедендік рәсімдеу · СВХ · Брокерлік сүйемелдеу"
     },
@@ -855,7 +879,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
       formSuccess:
         "Thank you! Your request has been sent.",
-
+       
+      trackerPlaceholder:
+        "Cargo number, e.g. A20260908",
+ 
+      trackerSearchBtn:
+        "Track",
+ 
+      trackerSearching:
+        "Searching...",
+ 
+      trackerNotFound:
+        "No cargo found with this number. Please check it or contact us.",
+       
       footerText:
         "Customs clearance · Temporary storage · Brokerage"
     }
