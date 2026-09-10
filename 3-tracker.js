@@ -1,18 +1,18 @@
 // ============================================================
-// Виджет "Трекер груза" — версия на Supabase
-// Требует подключения библиотеки supabase-js ПЕРЕД этим файлом:
+// Виджет "Трекер груза" — под новую вёрстку (cargo-route)
+// Требует библиотеку supabase-js, подключённую ДО этого файла:
 // <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 // <script src="tracker.js"></script>
 // ============================================================
 
 const SUPABASE_URL = "https://rciddlsipiijiubuhmxi.supabase.co";
 const SUPABASE_KEY = "sb_publishable_Prv9YVmOwHzLWPdW3ao92g_mrdlluIn";
-const TABLE_NAME = "JWS-Group"; // имя таблицы в Supabase
+const TABLE_NAME = "JWS-Group";
 
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 function renderTracker(row) {
-  document.getElementById("trackerId").textContent = "JWS / " + row.track_id;
+  document.getElementById("trackerId").textContent = "· " + row.track_id;
   document.getElementById("trackerStatus").textContent = (row.status || "").toUpperCase();
   document.getElementById("trackerStatusMeta").textContent = row.status || "—";
   document.getElementById("trackerWeight").textContent = (row.weight || "—") + " кг";
@@ -20,39 +20,54 @@ function renderTracker(row) {
   const eta = document.getElementById("trackerEta");
   eta.innerHTML = (row.eta_days ?? "—") + " <span>дня</span>";
 
-  document.getElementById("originLabel").innerHTML =
-    (row.origin || "") + "<br><small>" + (row.origin_country || "") + "</small>";
-  document.getElementById("borderLabel").innerHTML =
-    (row.border || "") + "<br><small>" + (row.border_label || "") + "</small>";
-  document.getElementById("destLabel").innerHTML =
-    (row.destination || "") + "<br><small>" + (row.destination_label || "") + "</small>";
+  document.getElementById("originName").textContent = row.origin || "—";
+  document.getElementById("originSub").textContent = row.origin_country || "";
+  document.getElementById("borderName").textContent = row.border || "—";
+  document.getElementById("borderSub").textContent = row.border_label || "";
+  document.getElementById("destName").textContent = row.destination || "—";
+  document.getElementById("destSub").textContent = row.destination_label || "";
 
   const stage = parseInt(row.stage, 10) || 1;
-  const node1 = document.getElementById("node1");
-  const node2 = document.getElementById("node2");
-  const node3 = document.getElementById("node3");
-  [node1, node2, node3].forEach((n) => n.classList.remove("active", "end"));
 
-  if (stage >= 1) node1.classList.add("active");
-  if (stage >= 2) node2.classList.add("active");
+  const point1 = document.getElementById("point1");
+  const point2 = document.getElementById("point2");
+  const point3 = document.getElementById("point3");
+  const conn1 = document.getElementById("conn1");
+  const conn2 = document.getElementById("conn2");
+  const truck = document.getElementById("truckIndicator");
+
+  [point1, point2].forEach((p) => p.classList.remove("active"));
+  point3.classList.remove("active");
+  conn1.classList.remove("active");
+  conn2.classList.remove("active");
+  conn2.classList.add("transit");
+
+  if (stage >= 1) point1.classList.add("active");
+
+  if (stage >= 2) {
+    conn1.classList.add("active");
+    point2.classList.add("active");
+    if (truck && conn2 && truck.parentElement !== conn2) {
+      conn2.appendChild(truck);
+    }
+  } else if (truck && conn1 && truck.parentElement !== conn1) {
+    conn1.appendChild(truck);
+  }
+
   if (stage >= 3) {
-    node3.classList.add("active");
-  } else {
-    node3.classList.add("end");
+    conn2.classList.remove("transit");
+    conn2.classList.add("active");
+    point3.classList.add("active");
+    if (truck) truck.style.display = "none";
+  } else if (truck) {
+    truck.style.display = "";
   }
 
-  const truck = document.getElementById("truckMarker");
-  if (truck) {
-    const positions = { 1: "0%", 2: "50%", 3: "100%" };
-    truck.style.left = positions[stage] || "0%";
-  }
-
-  document.getElementById("trackerResult").hidden = false;
+  document.getElementById("trackerWidget").hidden = false;
   document.getElementById("trackerError").hidden = true;
 }
 
 function showTrackerError() {
-  document.getElementById("trackerResult").hidden = true;
   document.getElementById("trackerError").hidden = false;
 }
 
@@ -70,6 +85,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const originalText = button.textContent;
     button.textContent = "Ищем...";
     button.disabled = true;
+    document.getElementById("trackerError").hidden = true;
 
     try {
       const { data, error } = await supabaseClient
