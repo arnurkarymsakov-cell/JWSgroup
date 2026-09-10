@@ -1336,6 +1336,9 @@ document.addEventListener("DOMContentLoaded", () => {
     lang
   ) {
 
+    const brokerValueLabel =
+      document.getElementById("brokerValueLabel");
+
     if (!brokerValueLabel) {
       return;
     }
