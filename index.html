@@ -193,211 +193,153 @@
     <!-- =================================================
          CARGO TRACKER
     ================================================== -->
+<!--
+  ЗАМЕНИТЕ существующий блок <div class="panel tracker">...</div>
+  (внутри секции hero) на этот целиком. Все ваши классы и SVG-иконки
+  сохранены без изменений — добавлены только id и форма поиска.
+-->
 
-    <div class="panel tracker">
+<div class="panel tracker" id="trackerWidget">
 
-      <div class="tracker-head">
+  <form class="tracker-search" id="trackerSearchForm">
+    <input
+      type="text"
+      id="trackerInput"
+      placeholder="Номер груза, напр. A20260908"
+      autocomplete="off"
+      required
+    >
+    <button type="submit">Найти</button>
+  </form>
 
-        <span>
-          JWS CARGO TRACKING
-        </span>
+  <div class="tracker-head">
 
-        <span
-          class="status"
-          data-i18n="onWay"
-        >
-          В ПУТИ
-        </span>
+    <span>
+      JWS CARGO TRACKING
+      <span id="trackerId"></span>
+    </span>
 
+    <span class="status" id="trackerStatus" data-i18n="onWay">
+      В ПУТИ
+    </span>
+
+  </div>
+
+
+  <div class="cargo-route">
+
+
+    <!-- ORIGIN -->
+
+    <div class="route-point" id="point1">
+
+      <div class="route-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 5h16v14H4z"></path>
+          <path d="M8 5v14"></path>
+          <path d="M16 5v14"></path>
+          <path d="M4 10h16"></path>
+          <path d="M4 15h16"></path>
+        </svg>
       </div>
 
-
-      <div class="cargo-route">
-
-
-        <!-- CHINA -->
-
-        <div class="route-point">
-
-          <div class="route-icon">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-
-              <path d="M4 5h16v14H4z"></path>
-
-              <path d="M8 5v14"></path>
-
-              <path d="M16 5v14"></path>
-
-              <path d="M4 10h16"></path>
-
-              <path d="M4 15h16"></path>
-
-            </svg>
-
-          </div>
-
-          <div
-            class="route-name"
-            data-i18n="china"
-          >
-            Китай
-          </div>
-
-          <div class="route-sub">
-            CN
-          </div>
-
-        </div>
-
-
-        <!-- CONNECTION -->
-
-        <div class="route-connection">
-
-          <div class="truck-indicator">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-
-              <path d="M3 6h11v10H3z"></path>
-
-              <path d="M14 10h4l3 3v3h-7z"></path>
-
-              <circle cx="7" cy="18" r="2"></circle>
-
-              <circle cx="18" cy="18" r="2"></circle>
-
-              <path d="M9 18h7"></path>
-
-            </svg>
-
-          </div>
-
-        </div>
-
-
-        <!-- BORDER -->
-
-        <div class="route-point">
-
-          <div class="route-icon">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-
-              <path d="M3 5h18"></path>
-
-              <path d="M5 5v14"></path>
-
-              <path d="M19 5v14"></path>
-
-              <path d="M3 19h18"></path>
-
-              <path d="M8 9h8"></path>
-
-              <path d="M8 13h8"></path>
-
-              <path d="M8 17h8"></path>
-
-            </svg>
-
-          </div>
-
-          <div
-            class="route-name"
-            data-i18n="border"
-          >
-            Граница
-          </div>
-
-          <div class="route-sub">
-            ZKT
-          </div>
-
-        </div>
-
-
-        <!-- CONNECTION -->
-
-        <div class="route-connection transit"></div>
-
-
-        <!-- WAREHOUSE -->
-
-        <div class="route-point end">
-
-          <div class="route-icon">
-
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-
-              <path d="M3 10l9-6 9 6"></path>
-
-              <path d="M5 10v9h14v-9"></path>
-
-              <path d="M9 19v-6h6v6"></path>
-
-              <path d="M7 10h10"></path>
-
-            </svg>
-
-          </div>
-
-          <div
-            class="route-name"
-            data-i18n="warehouseShort"
-          >
-            СВХ
-          </div>
-
-          <div class="route-sub">
-            KZ
-          </div>
-
-        </div>
-
-      </div>
-
-
-      <dl class="tracker-meta">
-
-        <div>
-
-          <dt data-i18n="weight">
-            Вес
-          </dt>
-
-          <dd>
-            12 500 кг
-          </dd>
-
-        </div>
-
-        <div>
-
-          <dt data-i18n="status">
-            Статус
-          </dt>
-
-          <dd data-i18n="inTransit">
-            В пути
-          </dd>
-
-        </div>
-
-        <div>
-
-          <dt>
-            ETA
-          </dt>
-
-          <dd>
-            4 <span data-i18n="days">дня</span>
-          </dd>
-
-        </div>
-
-      </dl>
+      <div class="route-name" id="originName">Китай</div>
+      <div class="route-sub" id="originSub">CN</div>
 
     </div>
+
+
+    <!-- CONNECTION 1 -->
+
+    <div class="route-connection" id="conn1">
+
+      <div class="truck-indicator" id="truckIndicator">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 6h11v10H3z"></path>
+          <path d="M14 10h4l3 3v3h-7z"></path>
+          <circle cx="7" cy="18" r="2"></circle>
+          <circle cx="18" cy="18" r="2"></circle>
+          <path d="M9 18h7"></path>
+        </svg>
+      </div>
+
+    </div>
+
+
+    <!-- BORDER -->
+
+    <div class="route-point" id="point2">
+
+      <div class="route-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 5h18"></path>
+          <path d="M5 5v14"></path>
+          <path d="M19 5v14"></path>
+          <path d="M3 19h18"></path>
+          <path d="M8 9h8"></path>
+          <path d="M8 13h8"></path>
+          <path d="M8 17h8"></path>
+        </svg>
+      </div>
+
+      <div class="route-name" id="borderName">Граница</div>
+      <div class="route-sub" id="borderSub">ZKT</div>
+
+    </div>
+
+
+    <!-- CONNECTION 2 -->
+
+    <div class="route-connection transit" id="conn2"></div>
+
+
+    <!-- DESTINATION -->
+
+    <div class="route-point end" id="point3">
+
+      <div class="route-icon">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M3 10l9-6 9 6"></path>
+          <path d="M5 10v9h14v-9"></path>
+          <path d="M9 19v-6h6v6"></path>
+          <path d="M7 10h10"></path>
+        </svg>
+      </div>
+
+      <div class="route-name" id="destName">СВХ</div>
+      <div class="route-sub" id="destSub">KZ</div>
+
+    </div>
+
+  </div>
+
+
+  <dl class="tracker-meta">
+
+    <div>
+      <dt data-i18n="weight">Вес</dt>
+      <dd id="trackerWeight">12 500 кг</dd>
+    </div>
+
+    <div>
+      <dt data-i18n="status">Статус</dt>
+      <dd id="trackerStatusMeta" data-i18n="inTransit">В пути</dd>
+    </div>
+
+    <div>
+      <dt>ETA</dt>
+      <dd id="trackerEta">4 <span data-i18n="days">дня</span></dd>
+    </div>
+
+  </dl>
+
+  <p id="trackerError" class="tracker-error" hidden>
+    Груз с таким номером не найден. Проверьте номер или свяжитесь с нами.
+  </p>
+
+</div>
+   
+
 
   </div>
 
