@@ -902,7 +902,8 @@ document.addEventListener("DOMContentLoaded", () => {
   /* =======================================================
      LANGUAGE
   ======================================================= */
-
+let brokerMode = "fixed";
+   
   const langButtons =
     document.querySelectorAll(".lang-btn");
 
@@ -1113,9 +1114,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const brokerValueLabel =
     document.getElementById("brokerValueLabel");
 
-
-  let brokerMode =
-    "fixed";
 
 
   function numberValue(element) {
