@@ -2238,3 +2238,58 @@ button:disabled {
   }
 
 }
+
+/* Добавьте в конец style.css.
+   Использованы общие тёмные тона — если у вас есть свои CSS-переменные
+   (--teal, --amber, --line и т.п.), пришлите style.css, подгоню точнее. */
+
+.tracker-search {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+
+.tracker-search input {
+  flex: 1;
+  min-width: 0;
+  padding: 8px 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.25);
+  color: inherit;
+  font-size: 13px;
+  outline: none;
+}
+
+.tracker-search input:focus {
+  border-color: currentColor;
+}
+
+.tracker-search button {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background: #E3A542;
+  color: #0E1B26;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+.tracker-search button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.tracker-error {
+  margin: 12px 0 0;
+  color: #E3A542;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+#trackerId {
+  opacity: 0.7;
+  font-weight: 400;
+}
