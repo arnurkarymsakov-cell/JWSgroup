@@ -18,9 +18,9 @@ document.addEventListener("DOMContentLoaded", () => {
     ru: {
 
       navServices: "Услуги",
-      navProcess: "Как это работает",
+      navProcess: "Процесс",
       navCalculator: "Калькулятор",
-      navAbout: "О компании",
+      navAbout: "О нас",
       navContact: "Контакты",
 
       request: "Оставить заявку",
@@ -291,9 +291,9 @@ document.addEventListener("DOMContentLoaded", () => {
     kz: {
 
       navServices: "Қызметтер",
-      navProcess: "Қалай жұмыс істейді",
+      navProcess: "Процесс",
       navCalculator: "Калькулятор",
-      navAbout: "Компания туралы",
+      navAbout: "Біз туралы",
       navContact: "Байланыс",
 
       request:
@@ -594,7 +594,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "Services",
 
       navProcess:
-        "How it works",
+        "Process",
 
       navCalculator:
         "Calculator",
