@@ -201,16 +201,20 @@
 
 <div class="panel tracker" id="trackerWidget">
 
-  <form class="tracker-search" id="trackerSearchForm">
-    <input
-      type="text"
-      id="trackerInput"
-      placeholder="Номер груза, напр. A20260908"
-      autocomplete="off"
-      required
-    >
-    <button type="submit">Найти</button>
-  </form>
+ <!-- Замените в index.html форму поиска трекера на эту (добавлены data-i18n) -->
+
+<form class="tracker-search" id="trackerSearchForm">
+  <input
+    type="text"
+    id="trackerInput"
+    data-i18n-placeholder="trackerPlaceholder"
+    placeholder="Номер груза, напр. A20260908"
+    autocomplete="off"
+    required
+  >
+  <button type="submit" data-i18n="trackerSearchBtn">Найти</button>
+  
+</form>
 
   <div class="tracker-head">
 
@@ -333,13 +337,14 @@
 
   </dl>
 
-  <p id="trackerError" class="tracker-error" hidden>
-    Груз с таким номером не найден. Проверьте номер или свяжитесь с нами.
-  </p>
+  -- И сообщение об ошибке (там же, внутри .panel.tracker) -->
+ 
+<p id="trackerError" class="tracker-error" data-i18n="trackerNotFound" hidden>
+  Груз с таким номером не найден. Проверьте номер или свяжитесь с нами.
+</p>
 
 </div>
    
-
 
   </div>
 
