@@ -11,6 +11,8 @@ const TABLE_NAME = "JWS-Group";
 
 const supabaseClient = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
+const SEARCHING_TEXT = { ru: "Ищем...", kz: "Іздеп жатырмыз...", en: "Searching..." };
+
 function renderTracker(row) {
   document.getElementById("trackerId").textContent = "· " + row.track_id;
   document.getElementById("trackerStatus").textContent = (row.status || "").toUpperCase();
@@ -83,7 +85,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const button = form.querySelector("button");
     const originalText = button.textContent;
-    button.textContent = "Ищем...";
+    const lang = document.documentElement.lang || "ru";
+    button.textContent = SEARCHING_TEXT[lang] || SEARCHING_TEXT.ru;
     button.disabled = true;
     document.getElementById("trackerError").hidden = true;
 
